@@ -59,7 +59,70 @@
     "contenido": [
       "Realizamos pruebas en open space, cafetería y vagón de metro midiendo la atenuación de ruido con un sonómetro.",
       "Analizamos la escena sonora con archivos FLAC y servicios en streaming con códecs LDAC y aptX.",
-      "Ambos modelos ofrecen multipunto estable; elige Bose si priorizas comodidad y Sony si quieres más funciones smart." 
+      "Ambos modelos ofrecen multipunto estable; elige Bose si priorizas comodidad y Sony si quieres más funciones smart."
+    ]
+  },
+  {
+    "slug": "setup-streaming-calidad-precio-2025",
+    "titulo": "Setup de streaming 2025: micrófonos y capturadoras que puntúan alto",
+    "extracto": "Comparamos latencia, claridad de voz y facilidad de montaje para streamers principiantes y avanzados.",
+    "categoria": "perifericos-streaming",
+    "marca": "elgato",
+    "publicado": "2025-02-02",
+    "actualizado": "2025-02-08",
+    "heroImage": "https://images.unsplash.com/photo-1527443224154-dc2a83c0b0b9?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Setup de streaming 2025: mejores micros y capturadoras | Opiniones Electrónicas",
+    "metaDescription": "Probamos capturadoras, micrófonos USB/XLR y brazos articulados valorando nota de claridad, latencia y montaje.",
+    "ogImage": "https://images.unsplash.com/photo-1527443224154-dc2a83c0b0b9?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["setup streaming", "mejores micrófonos", "capturadora 4K"],
+    "puntuacion": 4.5,
+    "destacados": ["Wave:3 consigue la mejor nota en claridad por euro", "HD60 X destaca en latencia baja estable", "Probamos soportes que no transmiten vibraciones a la voz"],
+    "contenido": [
+      "Montamos tres setups en escritorio compacto, midiendo latencia con cámara 120 fps y capturas a 1440p.",
+      "Comparamos perfiles de voz con EQ plana y con presets de streaming en OBS y Wave Link.",
+      "Las notas priorizan facilidad de uso y estabilidad en directos largos de 3 horas."
+    ]
+  },
+  {
+    "slug": "ipad-pro-m4-vs-surface-pro-10",
+    "titulo": "iPad Pro M4 vs Surface Pro 10: creatividad móvil con nota",
+    "extracto": "Benchmark de lápiz, apps creativas y autonomía real para elegir la tableta que suma más puntos.",
+    "categoria": "tabletas-creativas",
+    "marca": "apple",
+    "publicado": "2025-03-06",
+    "actualizado": "2025-03-09",
+    "heroImage": "https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "iPad Pro M4 vs Surface Pro 10: comparativa creativa | Opiniones Electrónicas",
+    "metaDescription": "Pruebas de lápiz, colorimetría, apps y conectividad. Ponemos nota a la mejor tableta para diseñar y estudiar.",
+    "ogImage": "https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["iPad Pro M4", "Surface Pro 10", "tableta para diseño"],
+    "puntuacion": 4.9,
+    "destacados": ["Apple Pencil Pro tiene la latencia más baja", "Surface gana en puertos y modo portátil", "Ambas superan las 9 horas de uso mixto"],
+    "contenido": [
+      "Probamos apps como Procreate, Affinity Designer y Figma en web para medir fluidez y consumo.",
+      "Medimos precisión de color en Pantone y sRGB con colorímetro i1Display.",
+      "La puntuación final pondera accesorios incluidos, servicio técnico y compatibilidad con monitores externos."
+    ]
+  },
+  {
+    "slug": "monitor-creator-4k-2025",
+    "titulo": "Los mejores monitores 4K para creadores en 2025",
+    "extracto": "Ranking con nota de color, conexiones y ergonomía para editar vídeo o ilustrar sin fatiga.",
+    "categoria": "monitores-creativos",
+    "marca": "asus",
+    "publicado": "2025-01-30",
+    "actualizado": "2025-02-03",
+    "heroImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Monitores 4K para creadores: ranking 2025 | Opiniones Electrónicas",
+    "metaDescription": "Comparativa de monitores 4K con DeltaE, HDR y ergonomía puntuados tras calibración y uso diario.",
+    "ogImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["monitor 4K", "creadores", "calibración"],
+    "puntuacion": 4.4,
+    "destacados": ["Paneles IPS con DeltaE < 2", "Incluimos monitores con USB-C 90W", "Altura y rotación ajustable sin crujidos"],
+    "contenido": [
+      "Probamos cobertura de color con DisplayCAL y revisamos uniformidad de brillo en 25 zonas.",
+      "Asignamos puntuación a la ergonomía, conectividad y garantía in situ.",
+      "Recomendaciones separadas por presupuesto y tamaño."
     ]
   }
 ]

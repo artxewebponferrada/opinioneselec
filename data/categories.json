@@ -28,5 +28,35 @@
     "metaTitle": "Audio premium: mejores auriculares y altavoces | Opiniones Electrónicas",
     "metaDescription": "Comparativas de sonido con mediciones, recomendaciones por presupuesto y consejos de configuración.",
     "ogImage": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "perifericos-streaming",
+    "nombre": "Periféricos de streaming",
+    "resumen": "Micrófonos, capturadoras y accesorios que mejoran directo y videollamada.",
+    "descripcion": "Probamos latencia, claridad de voz y estabilidad USB/Thunderbolt con sesiones reales en OBS y Discord.",
+    "heroImage": "https://images.unsplash.com/photo-1527443224154-dc2a83c0b0b9?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Periféricos de streaming con mejor nota | Opiniones Electrónicas",
+    "metaDescription": "Comparativas de micros, interfaces y capturadoras con puntuación clara para streamers y creadores.",
+    "ogImage": "https://images.unsplash.com/photo-1527443224154-dc2a83c0b0b9?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "tabletas-creativas",
+    "nombre": "Tabletas para crear",
+    "resumen": "iPad, Surface y tabletas gráficas probadas para diseño y estudio.",
+    "descripcion": "Analizamos precisión de lápiz, ecosistema de apps, autonomía y comodidad de trabajo híbrido.",
+    "heroImage": "https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Las mejores tabletas para creatividad y estudio | Opiniones Electrónicas",
+    "metaDescription": "Ranking de tabletas con puntuación en lápiz, pantalla y conectividad según perfiles creativos.",
+    "ogImage": "https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "monitores-creativos",
+    "nombre": "Monitores creativos",
+    "resumen": "Pantallas 4K y QHD calibradas para edición y motion graphics.",
+    "descripcion": "Medimos color, uniformidad y ergonomía para que trabajes con precisión y sin fatiga visual.",
+    "heroImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Monitores creativos 2025 con mejor puntuación | Opiniones Electrónicas",
+    "metaDescription": "Comparativa de monitores con DeltaE, HDR y conectividad USB-C con nota clara y recomendaciones.",
+    "ogImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80"
   }
 ]
