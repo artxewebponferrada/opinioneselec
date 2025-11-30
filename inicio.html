@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Opiniones Electrónicas - Inicio V2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#E53E3E", // Updated to red
+              "background-light": "#ffffff",
+              "background-dark": "#111318",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light font-display text-gray-800">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center">
+<div class="layout-content-container flex flex-col w-full max-w-7xl flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-4 sm:px-6 lg:px-8 py-4 sticky top-0 z-50 bg-background-light/80 backdrop-blur-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-black">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="m13 15.586-3.293-3.293-1.414 1.414L13 18.414l5.707-5.707-1.414-1.414z"></path><path d="M12.5 7H11v6h1.5V7z"></path></svg>
+</div>
+<h1 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-gray-900">Opiniones Electrónicas</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-gray-600 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Reviews</a>
+<a class="text-gray-600 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Comparativas</a>
+<a class="text-gray-600 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Noticias</a>
+<a class="text-gray-600 hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Marcas</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<label class="relative hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-gray-400 flex bg-gray-100 items-center justify-center pl-3 rounded-l-lg">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-black focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-100 h-full placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Buscar productos..." value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Acceder</span>
+</button>
+<button class="md:hidden flex items-center justify-center size-10 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex flex-col gap-12 md:gap-20 py-10 px-4 sm:px-6 lg:px-8">
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div class="flex flex-col gap-4">
+<h2 class="text-black text-4xl sm:text-5xl font-extrabold leading-tight tracking-tighter">Análisis honestos. Decisiones inteligentes.</h2>
+<p class="text-gray-600 text-lg">Tu guía de confianza en el universo tecnológico. Comparamos los mejores productos para que elijas siempre lo mejor.</p>
+<div class="flex gap-4 mt-4">
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors" href="#">
+<span class="truncate">Ver Comparativas</span>
+</a>
+<a class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-gray-100 text-black text-base font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors" href="#">
+<span class="truncate">Últimas Reviews</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAah3E62qCUjrXCxks2D5FZAbbFZ29SM6R2ae_viOy1mjHUFA-Dbg5YNu4F2lH_UrrPwgWkc6MVC08QxVWVy5N8rpDG8etlVcBRVqFEj-oDjGJUm1jUox1MqXRal1VUz_ihuTpNAA_lR5_4p67etWCIk_a4KbY-L_ApwgoJdSnMjtb9_3NKh70ASvzvwrR7n2qJAF3Jnok7Tie5F-Y5fhwRvd3ayImyYBustJr-ui0ci_aJE8n8ltvjQfK1_jc3hNBnHQWNg1Q5jY4");'></div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDF42a_DYLmg_3l0dVFgmNssXPVLWupc0nof5CgVdOB76ysZHW2_NWJwCAwb2Q47EYKqcZFFsFfvlYtnzMoyqcTaSTg_kWjbOqUFz0cFT72ry8gjbFgCOzTNmMdTdBqmZkSdxYPCiq3Vyeyq07KQSf4FtY3H4nZH0bYOcO1jBhXAfcZw8g0miyvnyf41CmM5PCMFTUiSKYwQVgfgoJ2gg4p-k-HGaLV9R3mhuhLNfWWNdE8e8rmdGLpVWV1ANcjiuwBRUKUuKCqfXs");'></div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfT5EVosNqcyNyqA9FqxuZZP-mVaHkgqfXM5HTmI2BY6AneQL9LuwW0WgwSXUL3FM1Eikt1L1RY2tntUzNB0eU_4MY1unWy83wzhdRIfCA3a61nTcr_-RvqeZSvDVHlBsBo-Y9bkh9Zdi3Plceg1NA2QAji5h5-tyt_pL8NS_aGLR0wvJIoHwrRoGpum2jNFS67A_3GAlGqc5fAES9r1z0Wk2VoeDqSAUKRoG24FpOZ4UvIWuW07rPiXhdzQm4A1yCqIjM-jQkrjk");'></div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8e_i6LMyU6qCpBdKfZICpwzhO0kwp-TMdP6WLDdKIm-t7p80lblfuvUi9qxPZfxSQMGlg1Pkta2HowLpnUUfj3n6AFqTAf8qoGweinePiDXvfKBiFNrhzRAaETakFusFyJsSdU1hHpT3afdxGWU2MMyGQFwZQqHugUZBOkXfC5El6Vo7EUdfKO0NynhLGzY2gvAj96hgS0SVjjSheCSZi_vtm5gF9KC_BdrBelk3HlIMvYn8GiuyIwHuKMQF-GSafEqgAFTr9AIo");'></div>
+</div>
+</section>
+<section class="flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-black text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em]">Marcas Destacadas</h2>
+<a class="text-primary font-semibold hover:underline" href="#">Ver todas</a>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+<div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary">
+<img alt="Apple Logo" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvEZrsxZl87oWO7Bfzgs_kUsGvuJ_tjUDjR5PnOAs5z2XnKouHoNl8FUKFloetj3g7JhGkcpXCEsVfxoQmnzYeivFpMHs8yOSJq6fhXZLCjQvfvAms1c9lA_jgZE-QcGURd3Ksrpf9XzuZccKLCumWstmco30th0bT_o1cf61_Am571wx1kdjFbort-oeQtEdMZeHiTKzyveh_hQ0o0-KNWGylTPecGRTXvrBJLD-mpq3zq3czJBAXhaYGyab41aBioRHVi_UXDpI"/>
+</div>
+<div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary">
+<img alt="Samsung Logo" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrbbEx1MAyestw9t9hiEvqwa0ZaupigPoDQn85jeR-Tr-4O72O35lmLk88jQ_tjrcBb6_oIHr-NF9RCpQ9CRZrV0nfWlZuwLwbRmpYxGqvonGrfFoCxlj3a_C0jRbmchNqwAlTldg6tt_RT564MUE4yBHXD5OnXThusmp5nC9nny3ZU0J9eg-FiMJx9WJAaaAS13B5I5emjuBIbo1ioAZ3F_cdPkEiRlyQfc7pb3hnaJ-JJwbNhid6jS0z8jyUcc4gj4ZiqKm858A"/>
+</div>
+<div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary">
+<img alt="Google Logo" class="h-8 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo6bKeQjXpf7q67F2NgEfBzilX6kwY7vTL4Heie5aubkP7dwuFmTkRsoB9xyik8PyQFN_VlDllF7tQGUh-_Xui9z7LDyQq3csi6GdnXGri_jeT4NadPBh48be6B_dxjLLru4Q79Wf4Tjk0A6d8JjoT19BwQIkHVD-33mvHUMkvyJPpm-sEvVzb0i9GmvuvsJoSHKysv8TleFzMiQBR6eouUdKLW06th0qqJO4O6qznVJMaFqRTnhL0XADKw7JozLLzx-13BADe17Q"/>
+</div>
+<div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary">
+<img alt="Sony Logo" class="h-6 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtjTR8UuAIc6ykq9YTvXpODp3I84hw0DyVazddErBIJ6rZ02fENUwIhm_-Rx0cTdpLPWbyrqQl-8Llci0sW4WkgF9DpCMon_cjiFlK3GvWX_dhB2uWstI0-kMy9EoSEezxAtLNGazTLJrucUqHlUoUmikyEWUYaB96DQIT-fIw6bykGVZRqAsLc38VhVw6pUwGPERU5XIkjNwvMYpuWVkprkSAryb0vL1cYwUrvW5Yq-BUwJrmhov7gR7eEsyLsqSEgJ1SOcmDlzA"/>
+</div>
+<div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary">
+<img alt="Nvidia Logo" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ2HQVuk1KpnvFmrSAJRvo1yJU59T2kWP2lHsL4Dv1ewQ_WmbJQKpPmi6zeZjLMz9aD7vDhslrgW5_fr_uDmljgN6hkjOFtYNzrA0W0PtnrSAuIpmJS6GCLBboqkZtFr8eVkFAhh2RK4kJHNL7eGGobYGEPIU19lmlhTRBNY8DNuv7ReM5KhanJnYXnWQnT17_vUjFIc5a0IenvWNDD7AJt5BsbwrcWMMDSuESnfKoPa8LM7IS387RysIGca4bRzHVGWZzGWe_obA"/>
+</div>
+<div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg border border-gray-200 transition-all hover:shadow-md hover:border-primary">
+<img alt="AMD Logo" class="h-10 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVNX-5BNa_Oav_oSp3F7_E1b_XH_IrO184pB5ERNI07mOI6vHyidNlfAoiop0ZeqgrMPNjcQnvL-xiPXfPfypYGTakwVYTbeBQhY_ZSj6V8QokL_R6Rpf3IdiLTwdc77tyr3XTjglgVSWEjdrOTmZWqXT_Wf9h6hS4gMKgZMTtqdGBokpQujDvBip905g7B_r8BQp34_WJEMNRZJbl3J5pQXlrhvtn2N_tOGNVyC3Crmb_WfM6hDg8Xt9MqmY0g_A-8u6ohpg7zlY"/>
+</div>
+</div>
+</section>
+<section class="flex flex-col">
+<div class="flex flex-col text-center items-center">
+<h2 class="text-black text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em]">Opiniones de nuestra comunidad</h2>
+<p class="text-gray-600 mt-2 max-w-2xl">Descubre qué piensan nuestros lectores sobre los productos que analizamos. Sus experiencias reales te ayudarán a decidir.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+<div class="flex flex-col gap-4 p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span>
+</div>
+</div>
+<p class="text-gray-800 font-medium">"El análisis del RTX 4080 vs RX 7900 XTX fue increíblemente detallado. Me ayudó a elegir la gráfica perfecta para mi nuevo PC. ¡Gracias!"</p>
+<div class="flex items-center gap-3 mt-2">
+<img alt="User avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEziwlLo_QaPCyQO45Xfq_uZvVSUJNJUHa-g31C2Gj7BMhCreR0WwSjL8BMX8i4-_LEdPoQuZNaSzSic84cA3Zc2Qbd2uNrBaKP4wnsnmDY1QlXgZkOC61N9s-3YIoToJUz_aVwb6e2S1rRQA1OhvjYkGYO4eQLCGMxdRUqXnB6vQUTm47yEjmEHQLhtWqxerQ3GWnj_cgzBlgH76zPOTGWqQqJqcs6jA9ytCKWd6pBoMKOgjo0s2nL8VJ3mBZ1kKSm7A6TCaPKzY"/>
+<div>
+<p class="font-bold text-gray-900">Carlos Sánchez</p>
+<p class="text-sm text-gray-500">Sobre: Duelo de Titanes GPU</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star_half</span>
+</div>
+</div>
+<p class="text-gray-800 font-medium">"Compré los Sony WH-1000XM5 basándome en vuestra comparativa y no podría estar más contenta. La cancelación de ruido es justo lo que necesitaba."</p>
+<div class="flex items-center gap-3 mt-2">
+<img alt="User avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyRVc0DiYjxYxBU7aUbynKgrbH08ZESwK1BvsHI_yqCV2I84yJiEQiXa52HwBFVZDgoJZDUSpWMvrS6ZxI9k25ds901nF26W6BKZhSjWvtySH7Pow78nAE-9uQAO8Sa0jYQKhiT8_PnOHh-ppYRfdS5DqL31tXYNKfle6aJ6UPMKTiIri1jRZbg89t4ladT8dsfSycGE0Wbr_PBwnaufJzi5nJwf8Wn9XkCiArrSdp29TLxcAErv06McXvj_KpBUEdSIB6px0lgkQ"/>
+<div>
+<p class="font-bold text-gray-900">Laura Jiménez</p>
+<p class="text-sm text-gray-500">Sobre: Sony vs Bose</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span><span class="material-symbols-outlined !text-xl">star</span>
+</div>
+</div>
+<p class="text-gray-800 font-medium">"La guía de ultrabooks es una joya. Comparar todas las especificaciones en un solo lugar me ahorró horas de investigación. ¡Excelente trabajo!"</p>
+<div class="flex items-center gap-3 mt-2">
+<img alt="User avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9sQAxKRsmGJy6SAdZeHTV1pnCfJ0c2WfxgslrfkzBpKuSfh1RiB55R4Djr9NmXsfGip3VJJ4zHJSRHkcxdCxTHaLb15qUeFzhECQ3DRRTDTRHc0dgrjPC_TW-7Ff9YbzrXtrvD93ZpJueGbYO8PmcAzLl2oL_QGggVWpTIqfK-mxuz8FSD_aY6DDIIMLU5oo13khwDO-MNBmDe9iBnTo7kpeDXgeb1Wipi-CLS_B_bEy3uRdtRI72BoqIs9B1QRk6ER1tYLX_2Mg"/>
+<div>
+<p class="font-bold text-gray-900">David Martín</p>
+<p class="text-sm text-gray-500">Sobre: Guía de Ultrabooks 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col">
+<div class="flex justify-between items-center">
+<h2 class="text-black text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em]">Últimos Artículos</h2>
+<a class="text-primary font-semibold hover:underline" href="#">Ver todos</a>
+</div>
+<p class="text-gray-600 mt-1">Noticias, análisis y guías del mundo de la tecnología.</p>
+<div class="grid grid-cols-1 gap-8 mt-6">
+<div class="p-4 rounded-xl border border-gray-200 bg-white shadow-sm @container hover:shadow-lg transition-shadow">
+<div class="flex flex-col items-stretch justify-start @[48rem]:flex-row @[48rem]:items-start gap-6">
+<div class="w-full @[48rem]:w-1/3 flex-shrink-0 bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A close-up of a modern CPU with glowing circuits against a dark background, representing Intel and AMD" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANq7LW2NeD7ta3UKgCkZMuiWoilUkR63WBuNe5acEdrIxQ9XFcVBIhFczddLQQoO9iLEkBVxJ25bZlNK7qNYZO6_md5kl5DM8DjKBeHIMJVfCjkL9knTdM-WfUmvnZJONRo1ToZnBg2d_vU7Ewq4cC12g7AViomg9vhZvUHRRsU78OrbCPGK0U2Y7_IbqbgZoxydl0WYOVasTl02OVNWvw8cXSNxkmIbKU5Q3l4UU3UlZKvqMY20rBpC6wGPZaOZBiQFTqWRZCy3s");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-2">
+<p class="text-primary text-sm font-semibold leading-normal">Procesadores</p>
+<p class="text-black text-xl font-bold leading-tight tracking-[-0.015em]">Guerra de CPUs: Intel Core i9-14900K vs. AMD Ryzen 9 7950X</p>
+<div class="flex items-end gap-3 justify-between mt-2">
+<div class="flex flex-col gap-1">
+<p class="text-gray-600 text-base font-normal leading-normal">Un análisis profundo de los benchmarks en gaming y productividad.</p>
+<p class="text-gray-500 text-sm font-normal leading-normal">Por Alex Chen | 26 Oct, 2023</p>
+</div>
+<a class="flex-shrink-0 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-gray-100 text-gray-900 text-sm font-bold leading-normal hover:bg-gray-200 transition-colors" href="#">
+<span class="truncate">Leer Más</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-gray-200 bg-white shadow-sm @container hover:shadow-lg transition-shadow">
+<div class="flex flex-col items-stretch justify-start @[48rem]:flex-row @[48rem]:items-start gap-6">
+<div class="w-full @[48rem]:w-1/3 flex-shrink-0 bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A stylish mechanical keyboard with RGB backlighting on a gaming setup" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8e_i6LMyU6qCpBdKfZICpwzhO0kwp-TMdP6WLDdKIm-t7p80lblfuvUi9qxPZfxSQMGlg1Pkta2HowLpnUUfj3n6AFqTAf8qoGweinePiDXvfKBiFNrhzRAaETakFusFyJsSdU1hHpT3afdxGWU2MMyGQFwZQqHugUZBOkXfC5El6Vo7EUdfKO0NynhLGzY2gvAj96hgS0SVjjSheCSZi_vtm5gF9KC_BdrBelk3HlIMvYn8GiuyIwHuKMQF-GSafEqgAFTr9AIo");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-2">
+<p class="text-primary text-sm font-semibold leading-normal">Periféricos</p>
+<p class="text-black text-xl font-bold leading-tight tracking-[-0.015em]">Los mejores teclados mecánicos para programar en 2024</p>
+<div class="flex items-end gap-3 justify-between mt-2">
+<div class="flex flex-col gap-1">
+<p class="text-gray-600 text-base font-normal leading-normal">Comparamos switches, layouts y calidad de construcción para que elijas el ideal.</p>
+<p class="text-gray-500 text-sm font-normal leading-normal">Por Maria Garcia | 22 Oct, 2023</p>
+</div>
+<a class="flex-shrink-0 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-gray-100 text-gray-900 text-sm font-bold leading-normal hover:bg-gray-200 transition-colors" href="#">
+<span class="truncate">Leer Más</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-gray-200 bg-white shadow-sm @container hover:shadow-lg transition-shadow">
+<div class="flex flex-col items-stretch justify-start @[48rem]:flex-row @[48rem]:items-start gap-6">
+<div class="w-full @[48rem]:w-1/3 flex-shrink-0 bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="A person wearing high-fidelity over-ear headphones, lost in music" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCmNwGMnIZ3iWP3Jv6LyPRlMpB6Zu5DJJprS7SKMog6Rpi9wg8BehZMqONZlGqJvwZWZ1uENYVYbmaXCJnZR6eywEfvdzpcBe-4ELFVPAqoubWSA7VqQ38aPvorTEqVY1ziRhKUrIxjBm45oVm4boXPnoHHJZrO1OWQX9onQreBZiu9M0sbvtdL18Lrfkcbn3afpOss62T-LaotCaBiuYBrVCEQxMKLaFhH_ojaEtsVVb4bkuarZ3MA5922WxbtgM9X0NANRUOdfww");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-2">
+<p class="text-primary text-sm font-semibold leading-normal">Audio</p>
+<p class="text-black text-xl font-bold leading-tight tracking-[-0.015em]">Sony WH-1000XM5 vs Bose QC Ultra: ¿Quién reina en cancelación de ruido?</p>
+<div class="flex items-end gap-3 justify-between mt-2">
+<div class="flex flex-col gap-1">
+<p class="text-gray-600 text-base font-normal leading-normal">Analizamos calidad de sonido, comodidad y la eficacia de su ANC.</p>
+<p class="text-gray-500 text-sm font-normal leading-normal">Por David Kim | 19 Oct, 2023</p>
+</div>
+<a class="flex-shrink-0 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-gray-100 text-gray-900 text-sm font-bold leading-normal hover:bg-gray-200 transition-colors" href="#">
+<span class="truncate">Leer Más</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="mt-16 border-t border-gray-200 bg-gray-50">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-3 text-black">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="m13 15.586-3.293-3.293-1.414 1.414L13 18.414l5.707-5.707-1.414-1.414z"></path><path d="M12.5 7H11v6h1.5V7z"></path></svg>
+</div>
+<h2 class="text-xl font-bold">Opiniones Electrónicas</h2>
+</div>
+<p class="mt-4 text-sm text-gray-600">Tu fuente de confianza para análisis y comparativas de tecnología.</p>
+</div>
+<div>
+<h3 class="font-bold text-black">Secciones</h3>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-gray-600 hover:text-primary transition-colors" href="#">Reviews</a></li>
+<li><a class="text-gray-600 hover:text-primary transition-colors" href="#">Comparativas</a></li>
+<li><a class="text-gray-600 hover:text-primary transition-colors" href="#">Noticias</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-black">Empresa</h3>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-gray-600 hover:text-primary transition-colors" href="#">Sobre Nosotros</a></li>
+<li><a class="text-gray-600 hover:text-primary transition-colors" href="#">Contacto</a></li>
+<li><a class="text-gray-600 hover:text-primary transition-colors" href="#">Política de Privacidad</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-bold text-black">Síguenos</h3>
+<div class="flex mt-4 space-x-4">
+<a class="text-gray-500 hover:text-primary transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-gray-500 hover:text-primary transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-gray-200 pt-8 text-center">
+<p class="text-sm text-gray-500">© 2024 Opiniones Electrónicas. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

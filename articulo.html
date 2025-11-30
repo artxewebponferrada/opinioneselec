@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Opiniones Electrónicas - Comparativa V2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#DC2626", // Red-600
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "0.75rem",
+                        xl: "1rem",
+                        full: "9999px",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="font-display bg-white text-gray-800">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-4 sm:px-10 py-3 bg-white w-full sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-black">
+<div class="size-7 text-primary">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"></path>
+</svg>
+</div>
+<h2 class="text-black text-xl font-bold leading-tight tracking-[-0.015em]">Opiniones Electrónicas</h2>
+</div>
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-black text-sm font-medium leading-normal hover:text-primary" href="#">Portátiles</a>
+<a class="text-black text-sm font-medium leading-normal hover:text-primary" href="#">Monitores</a>
+<a class="text-black text-sm font-medium leading-normal hover:text-primary" href="#">Móviles</a>
+<a class="text-black text-sm font-medium leading-normal hover:text-primary" href="#">Componentes</a>
+<a class="text-primary text-sm font-bold leading-normal" href="#">Comparativas</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4 md:gap-8">
+<label class="hidden sm:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-gray-500 flex border-none bg-gray-100 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined" style="font-size: 20px"> search </span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-black focus:outline-0 focus:ring-0 border-none bg-gray-100 focus:border-none h-full placeholder:text-gray-500 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Buscar" value=""/>
+</div>
+</label>
+<button class="hidden lg:flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">Suscríbete</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-LhYeTY-rKJjHMoXESUGghofMONxByTmEyN8liKF6jSAHeOKNLqCNE7ZF2TBP5Wk9LjWiFDroLyQf1hSVGWhQF4G1cCo9vZsoeXY9fXl0hwJ4UgRijY9hrZKxxlsX3cYbl3SuLJZoroHy-ZbuMvexTKW2yIinXEyQDGTK9dVCRlrKQ69PDLsXPCkDopgu05b_BFy4ioETIeh5mt2aMxgti5Sk4Oz8Xs4pFDAzfgxUmxJ4LUWFEwTRKVeQaeEMq_-4RAvOYI7grbs");'></div>
+</div>
+</header>
+<main class="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+<div class="flex flex-col gap-12 md:gap-16">
+<div class="flex flex-wrap gap-2 text-sm">
+<a class="text-gray-500 hover:text-primary" href="#">Inicio</a>
+<span class="text-gray-500">/</span>
+<a class="text-gray-500 hover:text-primary" href="#">Comparativas</a>
+<span class="text-gray-500">/</span>
+<span class="text-gray-900 font-medium">Mejores Portátiles Gaming 2024</span>
+</div>
+<div class="flex flex-col gap-4 text-center">
+<h1 class="text-gray-900 text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter">Comparativa: Los 5 Mejores Portátiles Gaming de 2024</h1>
+<p class="text-gray-600 text-base md:text-lg max-w-3xl mx-auto">Analizamos a fondo los portátiles más potentes del mercado para ayudarte a elegir el mejor para tus sesiones de juego.</p>
+<div class="flex items-center justify-center gap-4 mt-2">
+<p class="text-gray-500 text-sm font-normal">Por Alex Doe. Publicado: 15 Julio 2024</p>
+<p class="text-gray-500 text-sm font-normal underline">Divulgación de afiliados</p>
+</div>
+</div>
+<section class="flex flex-col gap-8 rounded-xl border border-gray-200 bg-white shadow-sm" id="product1">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 p-6">
+<div class="md:col-span-5 flex-shrink-0">
+<div class="bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Image of the Razer Blade 15 laptop on a desk" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAtmeK6_sx977PY9aAW0_GjJIp1LuWzvlgHgTXy4QxmPnc5XaA3VQa1I3Anqj6SUkH_eqRteNSmHnDPrTZTUBaBhOMgeAclUw6scsemievvnfpNqDWtLTdiyNwAjQcIj7FUqvAgpm5pzSqU1g3R_o39HkJ9z3N6lEZkqeRDVGBCBfP13iOpcJtE4laaz0hRXD4LHisyTox0XdKsBurN5q2bx3S74DuAaWN6A0AoIteSsR-skH8PCEWja6YhkWrNtD_2SByIgqmW_Y");'></div>
+</div>
+<div class="md:col-span-7 flex flex-col justify-between">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h2 class="text-3xl font-bold text-gray-900">1. Razer Blade 15</h2>
+<img alt="Razer Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOF-8pfCE-hJXT0ZAI__GLv0-vNSxwtZM9VCFGjxSY1ZdfYLmakaRCfnv6u6dDE1qymy17vi63vJOCyzgUriOWCnuWJdRioTZBOn7LtvCEDIHnvUVwYmAcSwVWkpmgVTe3uSPnSUA6j5jojSP2QrQGr2Jep4JHmseVZg2Qw6q4O6YPwJAGa1_7CmpTXV6ENJDjB92dinvuU3e54yb94qSNx_XkcRl_G9uSRuVCelFaiP656sGvEUkfhdz7py4aKsvnaAw2GDjDov4"/>
+</div>
+<p class="text-gray-600 mt-2">El equilibrio perfecto entre rendimiento y portabilidad. Ideal para jugadores que necesitan una máquina potente que puedan llevar a cualquier parte sin sacrificar estilo.</p>
+</div>
+<div class="flex items-end justify-between mt-4">
+<div>
+<span class="text-sm text-gray-500">Puntuación General</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-4xl font-black text-primary">9.5</span>
+<span class="text-xl font-bold text-gray-400">/10</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-right">
+<span class="text-2xl font-bold text-gray-900">2.499,99€</span>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-primary text-white text-base font-bold tracking-wide hover:bg-primary/90">
+<span>Ver Oferta</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 rounded-b-xl overflow-hidden">
+<div class="p-6 bg-white">
+<h3 class="font-bold text-lg mb-3 text-green-600 flex items-center gap-2"><span class="material-symbols-outlined text-green-600" style="font-size: 24px;">thumb_up</span>Pros</h3>
+<ul class="list-disc list-inside space-y-2 text-gray-700">
+<li>Diseño premium y construcción robusta.</li>
+<li>Pantalla QHD de 240Hz excepcional.</li>
+<li>Rendimiento de primer nivel con RTX 4070.</li>
+<li>Teclado y trackpad de alta calidad.</li>
+</ul>
+</div>
+<div class="p-6 bg-white">
+<h3 class="font-bold text-lg mb-3 text-red-600 flex items-center gap-2"><span class="material-symbols-outlined text-red-600" style="font-size: 24px;">thumb_down</span>Contras</h3>
+<ul class="list-disc list-inside space-y-2 text-gray-700">
+<li>Precio elevado.</li>
+<li>La batería podría ser mejor bajo carga.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-8 rounded-xl border border-gray-200 bg-white shadow-sm" id="product2">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 p-6">
+<div class="md:col-span-5 flex-shrink-0">
+<div class="bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Image of the ASUS ROG Zephyrus G14 laptop" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCeSKeogdq8M_M0r2CXGRwYdcnuGNB8SgRR4CHRTKuCIna0XXo_ZVWbWHn3nbGd3u8vcaRBWrM8601rBmuiB5nVRNR-YuyMIk5oLVH8X6NJU-UfhCXKzdDEvIOWQmyiEalxZtFdc6o3LcuzUgJky3nc9NMNGGg-BOfw5bR3o4QJD5HqaEA2Lm3Ox0AUZYO3syYDxiQiknNFf43rstP0MMbfCxrMUbHqIsfQ9FZ0vFDjW5YiJ9OPBnbuI_d-90UdNpOqihHGj1Y_4Fg");'></div>
+</div>
+<div class="md:col-span-7 flex flex-col justify-between">
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h2 class="text-3xl font-bold text-gray-900">2. ASUS ROG Zephyrus G14</h2>
+<img alt="ASUS Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx2yUClx8FKMClH6tyV1-eqsnxx8bShiCQXgbG4may5b8U4eEpgDKAWHnhGzVCjMIklctNkJPC9s831VK_gOd3WLy9gIQ5YsEs2Ia4o9ugrhnClYCMfaEzvDuHH7nunbmJ3eMh_P4HoK47DK0K2ecsVcYXUNSFP9y629R80gQT4nOQ_8miZiMJof4MlvG5Wt7TxlphLnt9X_K6I1sLL8jwJIBCMLqPbJIAVtozyGStVRuF0b6US8q9E5Hb2bFDm0HEfvAf6cmzWcE"/>
+</div>
+<p class="text-gray-600 mt-2">La mejor opción compacta. Este portátil de 14 pulgadas no escatima en potencia y es perfecto para estudiantes o profesionales que también son gamers.</p>
+</div>
+<div class="flex items-end justify-between mt-4">
+<div>
+<span class="text-sm text-gray-500">Puntuación General</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-4xl font-black text-primary">9.2</span>
+<span class="text-xl font-bold text-gray-400">/10</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-right">
+<span class="text-2xl font-bold text-gray-900">1.999,00€</span>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-primary text-white text-base font-bold tracking-wide hover:bg-primary/90">
+<span>Ver Oferta</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 rounded-b-xl overflow-hidden">
+<div class="p-6 bg-white">
+<h3 class="font-bold text-lg mb-3 text-green-600 flex items-center gap-2"><span class="material-symbols-outlined text-green-600" style="font-size: 24px;">thumb_up</span>Pros</h3>
+<ul class="list-disc list-inside space-y-2 text-gray-700">
+<li>Increíblemente ligero y portátil.</li>
+<li>Potente CPU AMD Ryzen 9.</li>
+<li>Pantalla AniMe Matrix única.</li>
+<li>Buena duración de la batería para uso general.</li>
+</ul>
+</div>
+<div class="p-6 bg-white">
+<h3 class="font-bold text-lg mb-3 text-red-600 flex items-center gap-2"><span class="material-symbols-outlined text-red-600" style="font-size: 24px;">thumb_down</span>Contras</h3>
+<ul class="list-disc list-inside space-y-2 text-gray-700">
+<li>La GPU es menos potente que en modelos más grandes.</li>
+<li>Puede calentarse bajo cargas intensas.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-6" id="table">
+<h2 class="text-3xl font-bold text-gray-900 text-center">Tabla Comparativa de Especificaciones</h2>
+<div class="overflow-x-auto rounded-xl border border-gray-200">
+<table class="w-full min-w-[800px] text-sm text-left text-gray-600">
+<thead class="text-xs text-gray-800 uppercase bg-gray-100">
+<tr>
+<th class="px-6 py-4 font-bold" scope="col">Característica</th>
+<th class="px-6 py-4 font-bold text-center" scope="col">Razer Blade 15</th>
+<th class="px-6 py-4 font-bold text-center" scope="col">ASUS ROG Zephyrus G14</th>
+<th class="px-6 py-4 font-bold text-center" scope="col">Alienware M15</th>
+<th class="px-6 py-4 font-bold text-center" scope="col">MSI GE76 Raider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white border-b border-gray-200">
+<th class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap" scope="row">CPU</th>
+<td class="px-6 py-4 text-center">Intel Core i9-13950HX</td>
+<td class="px-6 py-4 text-center">AMD Ryzen 9 7940HS</td>
+<td class="px-6 py-4 text-center">Intel Core i7-13700H</td>
+<td class="px-6 py-4 text-center">Intel Core i9-12900HK</td>
+</tr>
+<tr class="bg-gray-50 border-b border-gray-200">
+<th class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap" scope="row">GPU</th>
+<td class="px-6 py-4 text-center">NVIDIA GeForce RTX 4070</td>
+<td class="px-6 py-4 text-center">NVIDIA GeForce RTX 4060</td>
+<td class="px-6 py-4 text-center">NVIDIA GeForce RTX 4070</td>
+<td class="px-6 py-4 text-center">NVIDIA GeForce RTX 3080 Ti</td>
+</tr>
+<tr class="bg-white border-b border-gray-200">
+<th class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap" scope="row">RAM</th>
+<td class="px-6 py-4 text-center">32GB DDR5</td>
+<td class="px-6 py-4 text-center">16GB DDR5</td>
+<td class="px-6 py-4 text-center">16GB DDR5</td>
+<td class="px-6 py-4 text-center">32GB DDR5</td>
+</tr>
+<tr class="bg-gray-50 border-b border-gray-200">
+<th class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap" scope="row">Pantalla</th>
+<td class="px-6 py-4 text-center">15.6" QHD 240Hz</td>
+<td class="px-6 py-4 text-center">14" QHD+ 165Hz</td>
+<td class="px-6 py-4 text-center">15.6" QHD 240Hz</td>
+<td class="px-6 py-4 text-center">17.3" QHD 240Hz</td>
+</tr>
+<tr class="bg-white">
+<th class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap" scope="row">Almacenamiento</th>
+<td class="px-6 py-4 text-center">1TB NVMe SSD</td>
+<td class="px-6 py-4 text-center">1TB NVMe SSD</td>
+<td class="px-6 py-4 text-center">1TB NVMe SSD</td>
+<td class="px-6 py-4 text-center">2TB NVMe SSD</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="flex flex-col gap-4 p-8 bg-gray-50 rounded-xl border border-gray-200" id="conclusion">
+<h2 class="text-3xl font-bold text-gray-900 text-center">Veredicto Final y Recomendación</h2>
+<p class="text-gray-600 text-center max-w-3xl mx-auto">Después de un análisis exhaustivo, el <strong class="text-gray-900">Razer Blade 15</strong> se lleva el título de "Mejor Portátil Gaming General" de 2024. Su combinación de diseño, potencia y calidad de pantalla es insuperable, aunque su precio es un factor a considerar. Para aquellos que buscan la máxima portabilidad sin sacrificar demasiado rendimiento, el <strong class="text-gray-900">ASUS ROG Zephyrus G14</strong> es una elección fantástica y nuestra recomendación de "Mejor Portátil Compacto".</p>
+<div class="mt-4 p-4 bg-primary/10 rounded-lg border-l-4 border-primary">
+<p class="text-gray-800"><strong class="font-bold text-primary">Elección del Editor:</strong> Si el presupuesto no es un problema y buscas la mejor experiencia posible, el <strong class="font-bold">Razer Blade 15</strong> es la inversión que te dará alegrías durante años.</p>
+</div>
+</section>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8" id="comments">
+<div class="md:col-span-2 flex flex-col gap-6">
+<h2 class="text-3xl font-bold text-gray-900">Opiniones (3)</h2>
+<div class="space-y-6">
+<article class="p-6 bg-white rounded-xl border border-gray-200">
+<div class="flex items-start gap-4">
+<img class="w-10 h-10 rounded-full" data-alt="Avatar de usuario Carlos S." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1CVwvQq4A1wSRzEWchriJWDkyeAPXAEN2rDfyVm6O2Umk_SG5jjcNduOW_cfH2gdls6iAo10vvJGUd8y2EPBFRVH2hB5G-wGOCkfAeRo-TZbM7jfDcwIygcxMUZNv9DoDWU6qrk7xFlS0er3aaCc2RZ2ZVRx3dosIx_LGyr6Lpvqy-8zDScQdKWt68ptKDOK7DCdVtcfoIiULq0_yfgQC3roPbHAJzMY2Puu4q6Tljps5YiLtj_96XQB-VfIff__wLE0ODhwmD6g"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<p class="font-semibold text-gray-900">Carlos S.</p>
+<p class="text-sm text-gray-500">hace 2 días</p>
+</div>
+<div class="flex items-center gap-1 mt-1 text-yellow-500">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+<p class="mt-3 text-gray-700">¡Gran análisis! Estoy dudando entre el Blade 15 y el Zephyrus G14. ¿La diferencia de rendimiento de la GPU es muy notable en juegos como Cyberpunk 2077?</p>
+</div>
+</div>
+</article>
+<article class="p-6 bg-gray-50 rounded-xl border border-gray-200 ml-8">
+<div class="flex items-start gap-4">
+<img class="w-10 h-10 rounded-full" data-alt="Avatar de autor Alex Doe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJT1k76YbQucVJQV3JVGATsLxerC0p_9l5FD2t9VCyxCDqUiSRLDDhagEqUGcfHNuUvPYCaDkrPZ6MKC05mHVEyn0KDzskaDUrNy9mmWj_jwGSfHihvUNU59i0SV_bUBytGjyZwkw2w_pzdfJsnym-zXMGNmgDAn1PNuZE_YeAxAuSq9hlNqonouOGJdKWCqDuvijeNUJQsX6ib3mkMUHTC6EMtWI1cVXjInT-tOpobgk11huGSsUVdDXYpneSjXFPKyWnjQUMycA"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-semibold text-gray-900">Alex Doe</p>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2 py-0.5 rounded">Autor</span>
+</div>
+<p class="text-sm text-gray-500">hace 1 día</p>
+</div>
+<p class="mt-2 text-gray-700">Hola Carlos, buena pregunta. La RTX 4070 del Blade 15 te dará entre un 15-20% más de FPS en títulos exigentes a resolución QHD. Si priorizas los fotogramas, el Blade es la mejor opción. Si valoras más la portabilidad, el G14 sigue siendo muy capaz.</p>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="md:col-span-1">
+<div class="bg-white p-6 rounded-xl border border-gray-200 sticky top-28">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">Deja tu opinión</h3>
+<form class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-700 mb-2" for="rating">Tu valoración</label>
+<div class="flex items-center gap-1 text-gray-300">
+<button class="material-symbols-outlined !text-2xl hover:text-yellow-400" type="button">star</button>
+<button class="material-symbols-outlined !text-2xl hover:text-yellow-400" type="button">star</button>
+<button class="material-symbols-outlined !text-2xl hover:text-yellow-400" type="button">star</button>
+<button class="material-symbols-outlined !text-2xl hover:text-yellow-400" type="button">star</button>
+<button class="material-symbols-outlined !text-2xl hover:text-yellow-400" type="button">star</button>
+</div>
+</div>
+<textarea class="form-textarea w-full rounded-lg bg-gray-100 border-gray-300 text-gray-900 focus:ring-primary focus:border-primary placeholder:text-gray-500" placeholder="Escribe tu comentario aquí..." rows="4"></textarea>
+<div class="flex justify-end">
+<button class="w-full flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-primary text-white text-base font-bold tracking-wide hover:bg-primary/90" type="submit">
+<span>Publicar Opinión</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

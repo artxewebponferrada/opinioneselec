@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Opiniones Electrónicas - Búsqueda V2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#E63946",
+              "background-light": "#ffffff",
+              "background-dark": "#111318",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light font-display text-gray-800">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<header class="sticky top-0 z-50 flex items-center justify-center whitespace-nowrap border-b border-solid border-gray-200 bg-background-light/80 backdrop-blur-sm">
+<div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 w-full max-w-7xl h-16">
+<div class="flex items-center gap-4 text-black">
+<div class="w-8 h-8 flex items-center justify-center">
+<svg class="text-primary" fill="currentColor" height="32" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path><path d="m13 15.5-4-4 4-4v3h4v2h-4v3z"></path></svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Opiniones Electrónicas</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal text-gray-600 hover:text-primary transition-colors" href="#">Análisis</a>
+<a class="text-sm font-medium leading-normal text-gray-600 hover:text-primary transition-colors" href="#">Comparativas</a>
+<a class="text-sm font-medium leading-normal text-gray-600 hover:text-primary transition-colors" href="#">Noticias</a>
+<a class="text-sm font-medium leading-normal text-gray-600 hover:text-primary transition-colors" href="#">Guías de Compra</a>
+</div>
+</div>
+<div class="hidden sm:flex gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Iniciar Sesión</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 text-gray-800 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+<span class="truncate">Registrarse</span>
+</button>
+</div>
+<div class="md:hidden">
+<button class="flex items-center justify-center h-10 w-10 rounded-lg bg-gray-200">
+<span class="material-symbols-outlined text-gray-800">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+<div class="mb-10">
+<h1 class="text-gray-900 text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em] mb-6">Resultados para "laptop gaming"</h1>
+<div class="relative max-w-3xl">
+<div class="flex rounded-xl border-2 border-transparent focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/30 transition-all duration-300 shadow-lg shadow-gray-200/50">
+<input class="form-input flex-1 min-w-0 bg-white rounded-l-xl border-gray-200 h-14 placeholder:text-gray-400 px-5 text-base font-normal leading-normal focus:border-gray-200 focus:ring-0" placeholder="Busca un producto, marca o comparativa..." value="laptop gaming"/>
+<button class="bg-primary text-white rounded-r-xl px-5 flex items-center justify-center hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<aside class="lg:col-span-1 space-y-6">
+<div class="bg-white p-4 rounded-xl border border-gray-200">
+<h2 class="text-gray-900 text-xl font-bold leading-tight tracking-[-0.015em] pb-3 pt-1">Filtros</h2>
+<div class="flex flex-col">
+<details class="flex flex-col border-t border-t-gray-200 py-2 group" open="">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-gray-900 text-sm font-medium leading-normal">Categorías</p>
+<span class="material-symbols-outlined text-gray-600 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="space-y-2 pt-2">
+<label class="flex items-center gap-2"><input checked="" class="form-checkbox rounded bg-gray-200 border-transparent focus:ring-primary text-primary" type="checkbox"/> <span class="text-sm text-gray-600">Portátiles</span></label>
+<label class="flex items-center gap-2"><input class="form-checkbox rounded bg-gray-200 border-transparent focus:ring-primary text-primary" type="checkbox"/> <span class="text-sm text-gray-600">Smartphones</span></label>
+<label class="flex items-center gap-2"><input class="form-checkbox rounded bg-gray-200 border-transparent focus:ring-primary text-primary" type="checkbox"/> <span class="text-sm text-gray-600">Tarjetas Gráficas</span></label>
+</div>
+</details>
+<details class="flex flex-col border-t border-t-gray-200 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-gray-900 text-sm font-medium leading-normal">Marcas</p>
+<span class="material-symbols-outlined text-gray-600 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="space-y-2 pt-2">
+<label class="flex items-center gap-2"><input class="form-checkbox rounded bg-gray-200 border-transparent focus:ring-primary text-primary" type="checkbox"/> <span class="text-sm text-gray-600">Apple</span></label>
+<label class="flex items-center gap-2"><input class="form-checkbox rounded bg-gray-200 border-transparent focus:ring-primary text-primary" type="checkbox"/> <span class="text-sm text-gray-600">Samsung</span></label>
+<label class="flex items-center gap-2"><input class="form-checkbox rounded bg-gray-200 border-transparent focus:ring-primary text-primary" type="checkbox"/> <span class="text-sm text-gray-600">NVIDIA</span></label>
+</div>
+</details>
+<details class="flex flex-col border-t border-t-gray-200 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between gap-6 py-2 list-none">
+<p class="text-gray-900 text-sm font-medium leading-normal">Rango de Precio</p>
+<span class="material-symbols-outlined text-gray-600 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-4 px-1">
+<input class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&amp;::-webkit-slider-thumb]:bg-primary" max="3000" min="0" type="range" value="1500"/>
+<div class="flex justify-between text-xs text-gray-500 mt-2">
+<span>0€</span>
+<span>3000€+</span>
+</div>
+</div>
+</details>
+</div>
+<div class="flex flex-col gap-2 mt-6 border-t border-t-gray-200 pt-4">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">Aplicar Filtros</button>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-200 text-gray-800 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-300 transition-colors">Reiniciar</button>
+</div>
+</div>
+</aside>
+<div class="lg:col-span-3">
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+<p class="text-gray-600 text-sm">Mostrando <span class="font-bold text-gray-900">25</span> de <span class="font-bold text-gray-900">120</span> resultados</p>
+<div class="flex items-center gap-2">
+<label class="text-sm text-gray-600" for="sort">Ordenar por:</label>
+<select class="form-select rounded-lg bg-white border-gray-200 text-gray-900 text-sm focus:ring-primary focus:border-primary" id="sort">
+<option>Relevancia</option>
+<option>Precio: más bajo a más alto</option>
+<option>Precio: más alto a más bajo</option>
+<option>Más nuevo</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
+<div class="flex flex-col sm:flex-row gap-6 bg-white p-5 rounded-xl border border-gray-200 hover:shadow-xl hover:shadow-gray-200/60 hover:-translate-y-1 transition-all duration-300">
+<div class="w-full sm:w-2/5 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg aspect-[4/3] sm:aspect-auto" data-alt="Un portátil plateado abierto sobre una superficie blanca, mostrando un diseño minimalista." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFz9BU1SHXq9pk5FQ__KvUc9Bw59c4uPrLu50bHTIegZnwdqJp0S8rxlthA4gaKPcDYJIscFT1PsT5I0aQy5X__fBWU6aUOrIBAVhOhLvkTGmrQ8g8PzpxL0HptMRUywRppI0Iz8JUMAs-A1Do9b6i0f43bVIzqob-uF_OrfO3c1NMhFEW-599D1d2bTKf7Lx6be9syMEpMeMnlCz__3Qg7QBfEA7tRotybNNiNdI4R95ZOCZfDPI2bJWwJXp4PMNi16QeG4doabc"/>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">DELL</span>
+<h3 class="font-bold text-lg text-gray-900 mb-2 leading-tight">Dell XPS 15 (2023)</h3>
+<div class="flex items-center gap-1.5 text-yellow-400 mb-3">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+<span class="text-sm font-bold text-gray-800 ml-1">4.2</span>
+<span class="text-xs text-gray-500">(128 opiniones)</span>
+</div>
+<p class="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-200">"El equilibrio perfecto entre rendimiento y portabilidad. La pantalla OLED es espectacular, aunque la batería podría durar un poco más."</p>
+<div class="mt-auto pt-4 text-right">
+<p class="text-2xl font-extrabold text-primary">1.899,00 €</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 bg-white p-5 rounded-xl border border-gray-200 hover:shadow-xl hover:shadow-gray-200/60 hover:-translate-y-1 transition-all duration-300">
+<div class="w-full sm:w-2/5 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg aspect-[4/3] sm:aspect-auto" data-alt="Un MacBook Pro abierto sobre una mesa de madera oscura, con el logo de Apple iluminado." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHgQFvZzuvCzk6oa3jGY5_0d2pJ8FoJcKTvYufuOseyN2di_oLvrBr81NgFSxALmQ90KgcNwJNqmIWny13i_WvepkGeRqc7vV1NJpoCbTdUsiBjLSERz0bEMKA4kiQGI8z8jwniKjVbvCLaLXHCQEyzPWBGmD6d1JLK9mxTjKoKE-CUPGSPZu_k7mh7j9TEaxxb9nPY0jf-Px1P0vWaBEooVpwbSiE5FlJwHrXOJ5e9ryhGvO05OLkxeSxpvvIhKWV_5g7DKJp6N4"/>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">APPLE</span>
+<h3 class="font-bold text-lg text-gray-900 mb-2 leading-tight">MacBook Pro 16" (M2)</h3>
+<div class="flex items-center gap-1.5 text-yellow-400 mb-3">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="text-sm font-bold text-gray-800 ml-1">4.8</span>
+<span class="text-xs text-gray-500">(256 opiniones)</span>
+</div>
+<p class="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-200">"Una bestia de rendimiento. Edición de vídeo 8K sin despeinarse. El precio es elevado, pero la inversión se justifica."</p>
+<div class="mt-auto pt-4 text-right">
+<p class="text-2xl font-extrabold text-primary">2.599,00 €</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 bg-white p-5 rounded-xl border border-gray-200 hover:shadow-xl hover:shadow-gray-200/60 hover:-translate-y-1 transition-all duration-300">
+<div class="w-full sm:w-2/5 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg aspect-[4/3] sm:aspect-auto" data-alt="Un portátil gaming negro con teclado retroiluminado en colores RGB y un ratón a juego." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd7s2OwaWZcOiUSqWncv1R0gjHEUBeW-WFKORypHzN1AWzcPun65pcOCrneQxcnjQxJufmmHwPOEwr4h_VDK3EMimgpG0B0S8OpcNSdBkutYAUhr_q2FQAxjNIyoDTkCb0AUhMdmeqNN246_T7O_QmfafoNyMbhQ1ZFjkf2VTABaX8YtOhEVyi_fxohMFqXjlrlX6wncvv2oEWvYYhV80ENr_8HL2HWLGaAu8CSy7K0lOSWBTO2gPebfz9NN-g1VVwVTEgPCKgEXM"/>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">ASUS</span>
+<h3 class="font-bold text-lg text-gray-900 mb-2 leading-tight">Asus ROG Zephyrus G14</h3>
+<div class="flex items-center gap-1.5 text-yellow-400 mb-3">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-gray-800 ml-1">4.9</span>
+<span class="text-xs text-gray-500">(312 opiniones)</span>
+</div>
+<p class="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-200">"El rey de los portátiles gaming compactos. Potente, ligero y con una pantalla que es una delicia para jugar y trabajar."</p>
+<div class="mt-auto pt-4 text-right">
+<p class="text-2xl font-extrabold text-primary">2.199,00 €</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 bg-white p-5 rounded-xl border border-gray-200 hover:shadow-xl hover:shadow-gray-200/60 hover:-translate-y-1 transition-all duration-300">
+<div class="w-full sm:w-2/5 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-lg aspect-[4/3] sm:aspect-auto" data-alt="Un portátil Lenovo ThinkPad en un escritorio limpio y moderno, con una taza de café al lado." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIOiKvmrTVAUxLs6vmI-ap_RlieKd1wqTb8YfUr1OCYjssN3vHV7_2rFk5UCfUNu8fBUWUjvQu1v9e9Hv020i33XeGXKQy3s6cU_9GS-i9TkeuLEzi0VYq8J6xtxbKrgXFzw8jyk-_ivKle8Y2Owzv6lEBM-0Gz-cGPdZp-2CG7uzlFk76bowFAjY8bc6gXbbMZa2jegN7G5cFjHNceg6ApYoXJi3bjLauVj5VFhvtDwOzyPUOyZKpqanG59p9PxgSRmQrOv3m3QY"/>
+</div>
+<div class="flex flex-col flex-grow">
+<span class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">LENOVO</span>
+<h3 class="font-bold text-lg text-gray-900 mb-2 leading-tight">Lenovo Legion 5 Pro</h3>
+<div class="flex items-center gap-1.5 text-yellow-400 mb-3">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="text-sm font-bold text-gray-800 ml-1">4.7</span>
+<span class="text-xs text-gray-500">(190 opiniones)</span>
+</div>
+<p class="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-200">"Rendimiento bruto a un precio competitivo. La pantalla QHD 16:10 es perfecta para juegos y productividad. Algo pesado."</p>
+<div class="mt-auto pt-4 text-right">
+<p class="text-2xl font-extrabold text-primary">1.650,00 €</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-10">
+<nav aria-label="Pagination" class="flex items-center gap-2">
+<a class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors" href="#">
+<span class="material-symbols-outlined">chevron_left</span>
+</a>
+<a class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white font-bold text-sm" href="#">1</a>
+<a class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:bg-gray-100 font-medium text-sm transition-colors" href="#">2</a>
+<a class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:bg-gray-100 font-medium text-sm transition-colors" href="#">3</a>
+<span class="inline-flex items-center justify-center w-10 h-10 text-gray-500">...</span>
+<a class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-600 hover:bg-gray-100 font-medium text-sm transition-colors" href="#">5</a>
+<a class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-gray-500 hover:bg-gray-100 transition-colors" href="#">
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
