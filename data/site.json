@@ -1,0 +1,15 @@
+{
+  "title": "Opiniones Electrónicas",
+  "tagline": "Análisis y comparativas con 20 años de experiencia informática",
+  "description": "Guías, reviews y comparativas de hardware y tecnología escritas por un informático de tienda con más de 20 años de experiencia y 10 años como diseñador web.",
+  "author": {
+    "name": "Equipo Opiniones Electrónicas",
+    "email": "hola@opinioneselectronicas.com"
+  },
+  "social": {
+    "x": "https://x.com/opinioneselectronicas",
+    "linkedin": "https://www.linkedin.com/company/opinioneselectronicas"
+  },
+  "defaultImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+  "locale": "es-ES"
+}
