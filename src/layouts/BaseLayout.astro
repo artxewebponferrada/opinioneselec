@@ -31,17 +31,12 @@ const orgSchema = {
     <SEO {...props} site={site} />
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
   </head>
-  <body class="page-shell">
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <div class="bg-glow" aria-hidden="true"></div>
+  <body>
     <header class="header">
-      <div class="container nav-bar">
-        <a href="/" class="brand" aria-label="Ir al inicio">
-          <span class="logo-dot" aria-hidden="true">OE</span>
-          <div>
-            <strong>Opiniones Electrónicas</strong>
-            <span class="brand-sub">Hardware, portátiles y audio</span>
-          </div>
+      <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem;">
+        <a href="/" style="display:flex;align-items:center;gap:0.6rem;font-weight:800;font-size:1.25rem;">
+          <span class="badge" aria-hidden="true">OE</span>
+          <span>Opiniones Electrónicas</span>
         </a>
         <nav aria-label="Principal">
           <ul>
@@ -51,41 +46,31 @@ const orgSchema = {
             <li><a href="/busqueda">Búsqueda</a></li>
           </ul>
         </nav>
-        <div class="nav-cta">
-          <a class="pill" href="/busqueda">Lo último</a>
-          <a class="pill pill-ghost" href="#footer">Contacto</a>
-        </div>
       </div>
     </header>
-    <main id="contenido" class="page">
+    <main>
       <slot />
     </main>
-    <footer id="footer" class="footer">
+    <footer>
       <div class="container footer-grid">
         <div>
-          <p class="eyebrow">Sobre Opiniones Electrónicas</p>
-          <h3>Confianza técnica con EEAT real</h3>
+          <h3>Sobre Opiniones Electrónicas</h3>
           <p class="meta">{site.description}</p>
-          <div class="pill-group">
-            <span class="pill">20 años en mostrador</span>
-            <span class="pill pill-ghost">10 años diseñando webs</span>
-            <span class="pill pill-ghost">Respuestas honestas</span>
-          </div>
         </div>
         <div>
-          <p class="eyebrow">Categorías</p>
-          <ul class="link-list">
+          <h3>Categorías</h3>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:0.35rem;">
             <li><a href="/categoria/tarjetas-graficas">Tarjetas gráficas</a></li>
             <li><a href="/categoria/portatiles-productividad">Portátiles</a></li>
             <li><a href="/categoria/audio-premium">Audio premium</a></li>
           </ul>
         </div>
         <div>
-          <p class="eyebrow">Contacto</p>
+          <h3>Contacto</h3>
           <p class="meta">{site.author.email}</p>
-          <div class="pill-group">
-            <a class="pill pill-ghost" href={site.social.x}>X</a>
-            <a class="pill pill-ghost" href={site.social.linkedin}>LinkedIn</a>
+          <div class="flex">
+            <a href={site.social.x}>X</a>
+            <a href={site.social.linkedin}>LinkedIn</a>
           </div>
         </div>
       </div>

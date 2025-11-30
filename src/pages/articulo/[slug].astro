@@ -51,30 +51,25 @@ const articleSchema = {
   keywords={article.palabrasClave}
 >
   <article class="container">
-    <div class="hero hero-accent card">
-      <div>
-        <div class="badge">Análisis experto</div>
-        <h1 style="margin:0.5rem 0 0.25rem;">{article.titulo}</h1>
-        <div class="meta">Por {site.author.name} · {article.actualizado}</div>
-        <div class="tag-list">
-          <span class="tag">{category?.nombre}</span>
-          <span class="tag">{brand?.nombre}</span>
-          <span class="tag">Puntuación {article.puntuacion}</span>
-        </div>
-      </div>
-      <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
+    <div class="badge">Análisis experto</div>
+    <h1 style="margin:0.5rem 0 0.25rem;">{article.titulo}</h1>
+    <div class="meta">Por {site.author.name} · {article.actualizado}</div>
+    <div class="tag-list">
+      <span class="tag">{category?.nombre}</span>
+      <span class="tag">{brand?.nombre}</span>
+      <span class="tag">Puntuación {article.puntuacion}</span>
     </div>
+    <img class="cover-image" src={article.heroImage} alt={article.titulo} style="margin:1rem 0;" loading="lazy" />
 
-    <div class="grid grid-3" style="margin-top:1rem;">
+    <div class="grid grid-3">
       <div class="card" style="grid-column: span 2;">
         {article.contenido.map((paragraph) => (
-          <p class="meta" style="color:#e2e8f0;line-height:1.7;font-size:1.05rem;" key={paragraph}>{paragraph}</p>
+          <p class="meta" style="color:var(--text);line-height:1.7;font-size:1.05rem;" key={paragraph}>{paragraph}</p>
         ))}
       </div>
       <aside class="card" style="height:100%;">
-        <p class="eyebrow">Puntos clave</p>
-        <h3 style="margin-top:0;">Lo esencial</h3>
-        <ul style="padding-left:1.1rem;color:#cbd5e1;display:grid;gap:0.5rem;">
+        <h3 style="margin-top:0;">Puntos clave</h3>
+        <ul style="padding-left:1.1rem;color:var(--muted);display:grid;gap:0.5rem;">
           {article.destacados.map((item) => <li key={item}>{item}</li>)}
         </ul>
         <div class="table-rows" style="margin-top:1rem;">
@@ -87,16 +82,13 @@ const articleSchema = {
 
     <section>
       <div class="section-title">
-        <div>
-          <p class="eyebrow">Recomendación rápida</p>
-          <h2>Qué comprar sin perder tiempo</h2>
-        </div>
+        <h2>Recomendación rápida</h2>
       </div>
       <div class="card">
         <p class="meta">Si buscas trazado de rayos y compatibilidad con software profesional, elige la opción con mejor soporte Studio. Para maximizar FPS en rasterizado, prioriza la alternativa con mejor rendimiento por euro.</p>
         <div class="flex" style="margin-top:1rem;">
-          {category ? <a class="pill pill-ghost" href={`/categoria/${category.slug}`}>Volver a la categoría</a> : null}
-          {brand ? <a class="pill pill-ghost" href={`/marca/${brand.slug}`}>Ver más de {brand.nombre}</a> : null}
+          {category ? <a class="button secondary" href={`/categoria/${category.slug}`}>Volver a la categoría</a> : null}
+          {brand ? <a class="button secondary" href={`/marca/${brand.slug}`}>Ver más de {brand.nombre}</a> : null}
         </div>
       </div>
     </section>

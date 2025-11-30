@@ -1,1 +1,17 @@
-{ "name": "opinioneselec", "version": "1.0.0", "description": "Sitio Astro optimizado para Opiniones Electrónicas.", "type": "module", "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview", "check": "astro check" }, "dependencies": { "@astrojs/netlify": "^5.2.0", "@astrojs/sitemap": "latest", "astro": "^4.16.8" } }
+{
+  "name": "opinioneselec",
+  "version": "1.0.0",
+  "description": "Sitio Astro optimizado para Opiniones Electrónicas.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^5.2.0",
+    "@astrojs/sitemap": "latest",
+    "astro": "^4.16.8"
+  }
+}

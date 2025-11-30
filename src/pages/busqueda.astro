@@ -24,16 +24,8 @@ const searchSchema = {
   keywords={["buscador", "reviews", "comparativas"]}
 >
   <div class="container" style="padding:2rem 0;">
-    <div class="card hero-accent" style="margin-bottom:1.5rem;">
-      <div class="section-title" style="margin:0 0 1rem;">
-        <div>
-          <p class="eyebrow">Buscador</p>
-          <h1 style="margin:0;">Buscar artículos y comparativas</h1>
-        </div>
-        <span class="pill">Datos en JSON</span>
-      </div>
-      <p class="meta">Usa palabras clave o filtra por categoría y marca. Todos los datos provienen de nuestro repositorio JSON.</p>
-    </div>
+    <h1 style="margin:0 0 1rem;">Buscar artículos y comparativas</h1>
+    <p class="meta">Usa palabras clave o filtra por categoría y marca. Todos los datos provienen de nuestro repositorio JSON.</p>
 
     <form id="search-form" role="search" class="card" style="margin:1.5rem 0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
       <label>
@@ -65,7 +57,7 @@ const searchSchema = {
           <h3 style="margin:0.5rem 0;">{article.titulo}</h3>
           <p class="meta">{article.extracto}</p>
           <div class="tag-list"><span class="tag">{article.categoria}</span><span class="tag">{article.marca}</span></div>
-          <a class="pill pill-ghost" style="margin-top:0.85rem;" href={`/articulo/${article.slug}`}>Leer</a>
+          <a class="button secondary" style="margin-top:0.85rem;" href={`/articulo/${article.slug}`}>Leer</a>
         </article>
       ))}
     </div>

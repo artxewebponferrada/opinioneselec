@@ -44,15 +44,15 @@ const collectionSchema = {
   keywords={[category.nombre, 'guía de compra', 'comparativas']}
 >
   <div class="container">
-    <div class="hero hero-accent card">
+    <div class="hero">
       <div>
         <div class="badge">Categoría</div>
         <h1>{category.nombre}</h1>
         <p>{category.descripcion}</p>
-        <div class="pill-group">
-          <span class="pill">Benchmarks</span>
-          <span class="pill pill-ghost">Consejos de tienda</span>
-          <span class="pill pill-ghost">Actualizado</span>
+        <div class="tag-list">
+          <span class="tag">Benchmarks</span>
+          <span class="tag">Consejos de tienda</span>
+          <span class="tag">Actualizado</span>
         </div>
       </div>
       <img src={category.heroImage} alt={`Imagen de ${category.nombre}`} loading="lazy" />
@@ -60,11 +60,8 @@ const collectionSchema = {
 
     <section>
       <div class="section-title">
-        <div>
-          <p class="eyebrow">Artículos</p>
-          <h2>Artículos destacados</h2>
-        </div>
-        <span class="pill pill-ghost">{articles.length} análisis</span>
+        <h2>Artículos destacados</h2>
+        <span class="meta">{articles.length} análisis en esta categoría</span>
       </div>
       <div class="grid grid-3">
         {articles.map((article) => (
@@ -73,7 +70,7 @@ const collectionSchema = {
             <div class="meta">Actualizado {article.actualizado}</div>
             <h3 style="margin:0.5rem 0;">{article.titulo}</h3>
             <p class="meta">{article.extracto}</p>
-            <a class="pill pill-ghost" href={`/articulo/${article.slug}`}>Leer análisis</a>
+            <a class="button secondary" href={`/articulo/${article.slug}`}>Leer análisis</a>
           </article>
         ))}
       </div>
@@ -81,10 +78,7 @@ const collectionSchema = {
 
     <section>
       <div class="section-title">
-        <div>
-          <p class="eyebrow">Marcas analizadas</p>
-          <h2>Fabricantes clave</h2>
-        </div>
+        <h2>Marcas analizadas</h2>
       </div>
       <div class="grid grid-4">
         {relatedBrands.map((brand) => (
@@ -94,7 +88,7 @@ const collectionSchema = {
               <strong>{brand.nombre}</strong>
             </div>
             <p class="meta" style="margin-top:0.5rem;">{brand.descripcion}</p>
-            <a class="pill pill-ghost" href={`/marca/${brand.slug}`}>Ver ficha</a>
+            <a class="button secondary" href={`/marca/${brand.slug}`}>Ver ficha</a>
           </div>
         ))}
       </div>
