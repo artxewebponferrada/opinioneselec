@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "tarjetas-graficas",
+    "nombre": "Tarjetas gráficas",
+    "resumen": "Comparativas y guías para gamers, creadores y profesionales 3D.",
+    "descripcion": "Analizamos GPUs Nvidia y AMD con métricas reales de rendimiento, consumo y temperaturas para que elijas la mejor opción para tu PC.",
+    "heroImage": "https://images.unsplash.com/photo-1587202372775-98927b245186?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Mejores tarjetas gráficas 2025 | Opiniones Electrónicas",
+    "metaDescription": "Ranking actualizado de GPUs con benchmarks y consejos de compra basados en 20 años de experiencia informática.",
+    "ogImage": "https://images.unsplash.com/photo-1587202372775-98927b245186?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "portatiles-productividad",
+    "nombre": "Portátiles de productividad",
+    "resumen": "Laptops ligeros para trabajar, programar y crear contenido.",
+    "descripcion": "Probamos autonomía, ergonomía, calidad de teclado y rendimiento real en suites ofimáticas y herramientas de desarrollo.",
+    "heroImage": "https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Guía de portátiles de productividad | Opiniones Electrónicas",
+    "metaDescription": "Selección curada de ultrabooks y portátiles profesionales con pruebas de batería y temperaturas.",
+    "ogImage": "https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "audio-premium",
+    "nombre": "Audio premium",
+    "resumen": "Auriculares y altavoces con enfoque en fidelidad y comodidad.",
+    "descripcion": "Revisiones de auriculares con ANC, DACs y barras de sonido con pruebas de escenario real y calibración.",
+    "heroImage": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Audio premium: mejores auriculares y altavoces | Opiniones Electrónicas",
+    "metaDescription": "Comparativas de sonido con mediciones, recomendaciones por presupuesto y consejos de configuración.",
+    "ogImage": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80"
+  }
+]

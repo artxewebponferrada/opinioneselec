@@ -1,0 +1,79 @@
+---
+import SEO from '../components/SEO.astro';
+import { getSiteInfo } from '../utils/data';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  url: string;
+  type?: 'website' | 'article';
+  published?: string;
+  updated?: string;
+  keywords?: string[];
+}
+
+const site = getSiteInfo();
+const props = Astro.props;
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.title,
+  url: 'https://opinioneselectronicas.com',
+  description: site.description,
+  logo: site.defaultImage,
+  sameAs: Object.values(site.social)
+};
+---
+<html lang="es">
+  <head>
+    <SEO {...props} site={site} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem;">
+        <a href="/" style="display:flex;align-items:center;gap:0.6rem;font-weight:800;font-size:1.25rem;">
+          <span class="badge" aria-hidden="true">OE</span>
+          <span>Opiniones Electrónicas</span>
+        </a>
+        <nav aria-label="Principal">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/categoria/tarjetas-graficas">Comparativas</a></li>
+            <li><a href="/marca/nvidia">Marcas</a></li>
+            <li><a href="/busqueda">Búsqueda</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <h3>Sobre Opiniones Electrónicas</h3>
+          <p class="meta">{site.description}</p>
+        </div>
+        <div>
+          <h3>Categorías</h3>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:0.35rem;">
+            <li><a href="/categoria/tarjetas-graficas">Tarjetas gráficas</a></li>
+            <li><a href="/categoria/portatiles-productividad">Portátiles</a></li>
+            <li><a href="/categoria/audio-premium">Audio premium</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <p class="meta">{site.author.email}</p>
+          <div class="flex">
+            <a href={site.social.x}>X</a>
+            <a href={site.social.linkedin}>LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

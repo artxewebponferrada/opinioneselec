@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getArticles, getBrands, getCategories, getSiteInfo } from '../utils/data';
+
+const site = getSiteInfo();
+const categories = getCategories();
+const brands = getBrands();
+const articles = getArticles().slice(0, 3);
+const url = 'https://opinioneselectronicas.com/';
+
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.title,
+  url,
+  description: site.description,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${url}busqueda?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
+};
+---
+<BaseLayout title={`${site.title} | Análisis expertos de tecnología`}
+  description={site.description}
+  url={url}
+  image={site.defaultImage}
+  keywords={[site.tagline]}
+>
+  <div class="container">
+    <section class="hero">
+      <div>
+        <div class="badge">EEAT experto</div>
+        <h1>Análisis honestos. Decisiones inteligentes.</h1>
+        <p>Comparativas escritas por un informático con 20 años de mostrador y 10 años de diseño web. Probamos como en la vida real para que compres con datos.</p>
+        <div class="flex" style="margin-top:1.5rem;">
+          <a class="button" href="/categoria/tarjetas-graficas">Ver comparativas</a>
+          <a class="button secondary" href="/busqueda">Buscar productos</a>
+        </div>
+      </div>
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Componentes de PC sobre un escritorio" />
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Categorías en profundidad</h2>
+        <a href="/busqueda">Ver todo</a>
+      </div>
+      <div class="grid grid-3">
+        {categories.map((category) => (
+          <article class="card" key={category.slug}>
+            <img class="cover-image" src={category.heroImage} alt={`Imagen de ${category.nombre}`} loading="lazy" />
+            <h3 style="margin:0.75rem 0 0.35rem;">{category.nombre}</h3>
+            <p class="meta">{category.resumen}</p>
+            <div class="tag-list"><span class="tag">Benchmarks</span><span class="tag">Guías</span><span class="tag">Consejos</span></div>
+            <a class="button secondary" style="margin-top:0.85rem;" href={`/categoria/${category.slug}`}>Entrar</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Marcas que analizamos</h2>
+        <a href="/busqueda">Ver todas</a>
+      </div>
+      <div class="grid grid-4">
+        {brands.map((brand) => (
+          <article class="card" key={brand.slug}>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <img src={brand.logo} alt={`Logo ${brand.nombre}`} style="max-width:120px;max-height:40px;object-fit:contain;" loading="lazy" />
+              <span class="badge">{brand.nombre}</span>
+            </div>
+            <p class="meta" style="margin-top:0.5rem;">{brand.descripcion}</p>
+            <a class="button secondary" href={`/marca/${brand.slug}`}>Ver guías</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Últimos artículos</h2>
+        <a href="/busqueda">Todos los artículos</a>
+      </div>
+      <div class="grid grid-3">
+        {articles.map((article) => (
+          <article class="card" key={article.slug}>
+            <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
+            <div class="meta" style="margin-top:0.5rem;">Actualizado {article.actualizado}</div>
+            <h3 style="margin:0.5rem 0;">{article.titulo}</h3>
+            <p class="meta">{article.extracto}</p>
+            <div class="tag-list">
+              <span class="tag">{article.categoria}</span>
+              <span class="tag">{article.marca}</span>
+            </div>
+            <a class="button secondary" style="margin-top:0.85rem;" href={`/articulo/${article.slug}`}>Leer análisis</a>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)}></script>
+</BaseLayout>
