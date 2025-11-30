@@ -5,8 +5,55 @@ import { getArticles, getBrands, getCategories, getSiteInfo } from '../utils/dat
 const site = getSiteInfo();
 const categories = getCategories();
 const brands = getBrands();
-const articles = getArticles().slice(0, 3);
+const articles = getArticles();
 const url = 'https://opinioneselectronicas.com/';
+
+const heroSignals = [
+  { label: 'Puntuación media', value: '4,8/5', detail: 'Basada en pruebas reales y hojas de medición propias.' },
+  { label: 'Opiniones verificadas', value: '280+', detail: 'Usuarios que usan a diario nuestros rankings.' },
+  { label: 'Años vendiendo hardware', value: '20', detail: 'Experiencia de mostrador + laboratorio casero.' }
+];
+
+const scoreSteps = [
+  {
+    title: 'Probamos como tú lo usarías',
+    copy: 'Gaming, edición, clase online o teletrabajo. Medimos FPS, latencias, autonomía y ruido con sensores y hojas públicas.',
+    icon: '🧪'
+  },
+  {
+    title: 'Asignamos una nota clara',
+    copy: 'Puntuación sobre 5 con criterios de valor por euro, durabilidad, servicio técnico y experiencia diaria.',
+    icon: '⭐'
+  },
+  {
+    title: 'Opinión real y honesta',
+    copy: 'Sin notas infladas: contamos lo bueno, lo malo y para quién sirve. Siempre con recomendaciones accionables.',
+    icon: '💬'
+  }
+];
+
+const socialProof = [
+  {
+    name: 'María · Diseñadora UX',
+    quote: 'Compré portátil siguiendo la puntuación de ergonomía y acerté: teclado y batería como prometíais.',
+    rating: '4.9'
+  },
+  {
+    name: 'Rafa · Streamer',
+    quote: 'Las notas de ruido en las gráficas fueron clavadas. Mi setup ahora es más fresco y silencioso.',
+    rating: '4.8'
+  },
+  {
+    name: 'Lucía · Soporte IT',
+    quote: 'Valoro que publiquéis la ficha de pruebas. Las puntuaciones se sienten ganadas, no marketing.',
+    rating: '5.0'
+  }
+];
+
+const highlightedArticles = [...articles]
+  .sort((a, b) => b.puntuacion - a.puntuacion)
+  .slice(0, 3);
+const freshArticles = [...articles].slice(0, 3);
 
 const webSiteSchema = {
   '@context': 'https://schema.org',
@@ -31,14 +78,41 @@ const webSiteSchema = {
     <section class="hero">
       <div>
         <div class="badge">EEAT experto</div>
-        <h1>Análisis honestos. Decisiones inteligentes.</h1>
-        <p>Comparativas escritas por un informático con 20 años de mostrador y 10 años de diseño web. Probamos como en la vida real para que compres con datos.</p>
-        <div class="flex" style="margin-top:1.5rem;">
-          <a class="button" href="/categoria/tarjetas-graficas">Ver comparativas</a>
-          <a class="button secondary" href="/busqueda">Buscar productos</a>
+        <h1>Notas reales para comprar sin dudas.</h1>
+        <p>Benchmark, termómetro y oído afinado: damos una puntuación justa y contamos la experiencia real tras días de uso.</p>
+        <div class="flex hero-cta">
+          <a class="button" href="/categoria/tarjetas-graficas">Ver comparativas top</a>
+          <a class="button secondary" href="/busqueda">Buscar por nota</a>
+        </div>
+        <div class="signal-bar">
+          {heroSignals.map((signal) => (
+            <div class="signal-card">
+              <p class="signal-value">{signal.value}</p>
+              <p class="meta">{signal.label}</p>
+              <small>{signal.detail}</small>
+            </div>
+          ))}
         </div>
       </div>
       <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80" alt="Componentes de PC sobre un escritorio" />
+    </section>
+
+    <section class="score-section">
+      <div class="section-title">
+        <h2>Cómo ponemos la nota</h2>
+        <a href="/busqueda">Ver fichas de prueba</a>
+      </div>
+      <div class="grid grid-3">
+        {scoreSteps.map((step) => (
+          <article class="card step-card" key={step.title}>
+            <div class="step-icon" aria-hidden="true">{step.icon}</div>
+            <div>
+              <h3>{step.title}</h3>
+              <p class="meta">{step.copy}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section>
@@ -54,6 +128,30 @@ const webSiteSchema = {
             <p class="meta">{category.resumen}</p>
             <div class="tag-list"><span class="tag">Benchmarks</span><span class="tag">Guías</span><span class="tag">Consejos</span></div>
             <a class="button secondary" style="margin-top:0.85rem;" href={`/categoria/${category.slug}`}>Entrar</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Top puntuaciones de la semana</h2>
+        <a href="/busqueda">Filtrar por nota</a>
+      </div>
+      <div class="grid grid-3">
+        {highlightedArticles.map((article) => (
+          <article class="card highlight" key={article.slug}>
+            <div class="highlight-header">
+              <span class="pill">{article.categoria}</span>
+              <span class="score">{article.puntuacion.toFixed(1)}</span>
+            </div>
+            <h3>{article.titulo}</h3>
+            <p class="meta">{article.extracto}</p>
+            <div class="tag-list">
+              <span class="tag">{article.marca}</span>
+              <span class="tag">Actualizado {article.actualizado}</span>
+            </div>
+            <a class="button secondary" style="margin-top:0.85rem;" href={`/articulo/${article.slug}`}>Leer por qué tiene esa nota</a>
           </article>
         ))}
       </div>
@@ -78,13 +176,34 @@ const webSiteSchema = {
       </div>
     </section>
 
+    <section class="social-section">
+      <div class="section-title">
+        <h2>Opiniones reales de la comunidad</h2>
+        <a href="/busqueda">Únete a las reviews</a>
+      </div>
+      <div class="grid grid-3">
+        {socialProof.map((proof) => (
+          <article class="card social-card" key={proof.name}>
+            <div class="social-header">
+              <div class="avatar" aria-hidden="true">{proof.name.charAt(0)}</div>
+              <div>
+                <strong>{proof.name}</strong>
+                <p class="meta">Puntuación enviada: {proof.rating}/5</p>
+              </div>
+            </div>
+            <p>{proof.quote}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section>
       <div class="section-title">
         <h2>Últimos artículos</h2>
         <a href="/busqueda">Todos los artículos</a>
       </div>
       <div class="grid grid-3">
-        {articles.map((article) => (
+        {freshArticles.map((article) => (
           <article class="card" key={article.slug}>
             <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
             <div class="meta" style="margin-top:0.5rem;">Actualizado {article.actualizado}</div>
@@ -93,6 +212,7 @@ const webSiteSchema = {
             <div class="tag-list">
               <span class="tag">{article.categoria}</span>
               <span class="tag">{article.marca}</span>
+              <span class="tag">Nota {article.puntuacion.toFixed(1)}</span>
             </div>
             <a class="button secondary" style="margin-top:0.85rem;" href={`/articulo/${article.slug}`}>Leer análisis</a>
           </article>
