@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "nvidia",
+    "nombre": "NVIDIA",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg",
+    "descripcion": "GPU de referencia para gaming y workflows de IA con drivers profesionales Studio.",
+    "metaTitle": "Reviews y guías NVIDIA | Opiniones Electrónicas",
+    "metaDescription": "Benchmarks de gráficas RTX, DLSS, Reflex y ecosistema Studio probados por técnicos certificados.",
+    "ogImage": "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "amd",
+    "nombre": "AMD",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg",
+    "descripcion": "Procesadores Ryzen y GPUs Radeon analizadas con métricas térmicas y de eficiencia.",
+    "metaTitle": "Cobertura AMD: Ryzen y Radeon con datos reales | Opiniones Electrónicas",
+    "metaDescription": "Comparativas de CPUs y GPUs AMD con pruebas en tienda, undervolt y análisis de valor por euro.",
+    "ogImage": "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "lenovo",
+    "nombre": "Lenovo",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Lenovo_Global_Corporate_Logo.png",
+    "descripcion": "Portátiles ThinkPad y Legion evaluados en escenarios reales de oficina y gaming.",
+    "metaTitle": "Analizamos Lenovo: ThinkPad, Yoga y Legion | Opiniones Electrónicas",
+    "metaDescription": "Pruebas de durabilidad, ergonomía y servicio posventa de los equipos Lenovo más demandados.",
+    "ogImage": "https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1200&q=80"
+  }
+]

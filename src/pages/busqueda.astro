@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getArticles, getBrands, getCategories, getSiteInfo } from '../utils/data';
+
+const site = getSiteInfo();
+const articles = getArticles();
+const categories = getCategories();
+const brands = getBrands();
+const url = 'https://opinioneselectronicas.com/busqueda/';
+
+const searchSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SearchResultsPage',
+  name: 'Buscador de análisis',
+  description: 'Encuentra artículos, marcas y categorías de tecnología analizadas por expertos.',
+  url
+};
+---
+<BaseLayout
+  title={`Búsqueda de productos | ${site.title}`}
+  description="Localiza reviews, comparativas y guías por palabra clave, categoría o marca."
+  url={url}
+  image={site.defaultImage}
+  keywords={["buscador", "reviews", "comparativas"]}
+>
+  <div class="container" style="padding:2rem 0;">
+    <div class="card hero-accent" style="margin-bottom:1.5rem;">
+      <div class="section-title" style="margin:0 0 1rem;">
+        <div>
+          <p class="eyebrow">Buscador</p>
+          <h1 style="margin:0;">Buscar artículos y comparativas</h1>
+        </div>
+        <span class="pill">Datos en JSON</span>
+      </div>
+      <p class="meta">Usa palabras clave o filtra por categoría y marca. Todos los datos provienen de nuestro repositorio JSON.</p>
+    </div>
+
+    <form id="search-form" role="search" class="card" style="margin:1.5rem 0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+      <label>
+        <span class="meta">Palabra clave</span>
+        <input type="search" name="q" placeholder="Ej. RTX 4080, ThinkPad" />
+      </label>
+      <label>
+        <span class="meta">Categoría</span>
+        <select name="categoria">
+          <option value="">Todas</option>
+          {categories.map((category) => <option value={category.slug}>{category.nombre}</option>)}
+        </select>
+      </label>
+      <label>
+        <span class="meta">Marca</span>
+        <select name="marca">
+          <option value="">Todas</option>
+          {brands.map((brand) => <option value={brand.slug}>{brand.nombre}</option>)}
+        </select>
+      </label>
+      <button class="button" type="submit" style="align-self:end;">Aplicar filtros</button>
+    </form>
+
+    <div id="results" class="grid grid-3">
+      {articles.map((article) => (
+        <article class="card" data-title={article.titulo.toLowerCase()} data-category={article.categoria} data-brand={article.marca}>
+          <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
+          <div class="meta">Actualizado {article.actualizado}</div>
+          <h3 style="margin:0.5rem 0;">{article.titulo}</h3>
+          <p class="meta">{article.extracto}</p>
+          <div class="tag-list"><span class="tag">{article.categoria}</span><span class="tag">{article.marca}</span></div>
+          <a class="pill pill-ghost" style="margin-top:0.85rem;" href={`/articulo/${article.slug}`}>Leer</a>
+        </article>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(searchSchema)}></script>
+  <script>
+    const form = document.getElementById('search-form');
+    const results = document.getElementById('results');
+
+    const applyFilters = () => {
+      const data = new FormData(form);
+      const term = (data.get('q') || '').toString().toLowerCase().trim();
+      const cat = data.get('categoria')?.toString();
+      const brand = data.get('marca')?.toString();
+
+      results?.querySelectorAll('article').forEach((card) => {
+        const title = card.getAttribute('data-title') || '';
+        const category = card.getAttribute('data-category');
+        const brandAttr = card.getAttribute('data-brand');
+        const matchesTerm = term ? title.includes(term) : true;
+        const matchesCategory = cat ? category === cat : true;
+        const matchesBrand = brand ? brandAttr === brand : true;
+        card.toggleAttribute('hidden', !(matchesTerm && matchesCategory && matchesBrand));
+      });
+    };
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      applyFilters();
+      const params = new URLSearchParams(new FormData(form) as any);
+      const url = new URL(window.location.href);
+      url.search = params.toString();
+      window.history.replaceState({}, '', url);
+    });
+
+    // hidrata filtros desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    ['q', 'categoria', 'marca'].forEach((key) => {
+      const value = urlParams.get(key);
+      if (value) {
+        const input = form?.querySelector(`[name="${key}"]`);
+        if (input) (input as HTMLInputElement).value = value;
+      }
+    });
+    applyFilters();
+  </script>
+</BaseLayout>
