@@ -15,9 +15,9 @@
     "puntuacion": 4.8,
     "destacados": ["DLSS 3.5 brilla en trazado de rayos", "Radeon ofrece mejor rendimiento por euro en raster", "Consumo medio 320W con undervolt estable"],
     "contenido": [
-      "<h2>Banco de pruebas y metodología</h2><p>Probamos ambas GPUs en un banco de pruebas con <strong>Ryzen 9 7950X3D</strong>, 32 GB DDR5-6000 CL30 y fuente de 1000W con certificación Platinum. Todas las capturas se realizaron con drivers actualizados y resizable BAR activo.</p>",
-      "<h2>Benchmark 4K: raster vs trazado de rayos</h2><p>En 4K rasterizado, la RX 7900 XTX aventaja un <strong>6% medio</strong>, mientras que en ray tracing la RTX 4080 Super recupera un <strong>14%</strong> gracias a DLSS 3.5. Las térmicas se estabilizaron en 64 ºC (RTX) y 67 ºC (Radeon) con perfiles de ventilador equilibrados.</p><ul><li>RTX 4080 Super: mejor latencia en creativos CUDA/Studio.</li><li>RX 7900 XTX: mayor FPS por euro en raster.</li><li>Ambas mantienen ruido por debajo de 36 dBA con undervolt ligero.</li></ul>",
-      "<h2>Conclusión rápida</h2><p>Recomendamos la RTX 4080 Super para creadores que usan CUDA/Studio y la Radeon para gamers que priorizan FPS sin RT. Si quieres equilibrio, aplica undervolt y limita a 320W para mejorar eficiencia sin perder rendimiento notable.</p>"
+      "Probamos ambas GPUs en un banco de pruebas con Ryzen 9 7950X3D, 32 GB DDR5-6000 CL30 y fuente de 1000W con certificación Platinum.",
+      "En 4K rasterizado, la RX 7900 XTX aventaja un 6% medio, mientras que en ray tracing la RTX 4080 Super recupera un 14% gracias a DLSS.",
+      "Recomendamos la RTX 4080 Super para creadores que usan CUDA/Studio y la Radeon para gamers que priorizan FPS sin RT." 
     ]
   },
   {
@@ -36,9 +36,9 @@
     "puntuacion": 4.7,
     "destacados": ["14 horas de autonomía mixta", "Teclado con recorrido clásico y resistencia a derrames", "Mantiene HDMI y USB-A junto a Thunderbolt 4"],
     "contenido": [
-      "<h2>Pruebas de movilidad</h2><p>Usamos el X1 Carbon como equipo principal durante 10 días en oficina, tren y avión. El chasis de fibra de carbono se mantiene intacto en mochila y la bisagra sigue firme tras múltiples aperturas diarias.</p>",
-      "<h2>Pantalla y experiencia de trabajo</h2><p>El panel OLED 120 Hz entrega <strong>100% DCI-P3</strong> y 430 nits sostenidos en SDR, excelente para edición ligera. El teclado conserva el recorrido clásico con resistencia a derrames, y el trackpoint sigue siendo útil para atajos rápidos.</p><ul><li>Autonomía real: 11 h en ofimática, 7 h en videollamadas.</li><li>Puertos completos: HDMI, USB-A, Thunderbolt 4 x2.</li><li>Sonido Dolby con diafragmas más grandes, sin vibraciones en reposamuñecas.</li></ul>",
-      "<h2>Térmicas y mantenimiento</h2><p>La temperatura del chasis se mantiene en <strong>43ºC</strong> bajo carga sostenida gracias a un perfil de ventilación conservador. El acceso a SSD y Wi-Fi es sencillo, ideal para ampliar en el futuro.</p>"
+      "Usamos el X1 Carbon como equipo principal durante 10 días en oficina y en desplazamientos en tren y avión.",
+      "El panel OLED 120 Hz entrega 100% DCI-P3 y 430 nits sostenidos en SDR, excelente para edición ligera.",
+      "La temperatura del chasis se mantiene en 43ºC bajo carga sostenida gracias a un perfil de ventilación conservador." 
     ]
   },
   {
@@ -57,9 +57,9 @@
     "puntuacion": 4.6,
     "destacados": ["Sony lidera en personalización y apps", "Bose ofrece mayor confort en sesiones largas", "Micrófonos de Bose recogen menos ruido de viento"],
     "contenido": [
-      "<h2>Cancelación de ruido en escenarios reales</h2><p>Realizamos pruebas en open space, cafetería y vagón de metro midiendo la atenuación con sonómetro calibrado. Sony ofrece mayor reducción en frecuencias medias-altas, mientras Bose brilla en graves constantes como motores.</p>",
-      "<h2>Calidad de sonido y llamadas</h2><p>Analizamos la escena sonora con archivos FLAC y servicios en streaming con códecs LDAC y aptX. El perfil Bose es más cálido, el de Sony más analítico con mayor separación instrumental.</p><ul><li>Micrófonos Bose: mejor rechazo de viento.</li><li>App Sony: más presets y ecualización granular.</li><li>Confort: Bose pesa menos y aprieta menos en sesiones de 3 h.</li></ul>",
-      "<h2>Veredicto</h2><p>Ambos modelos ofrecen multipunto estable; elige Bose si priorizas comodidad prolongada y Sony si quieres más funciones smart y personalización de sonido.</p>"
+      "Realizamos pruebas en open space, cafetería y vagón de metro midiendo la atenuación de ruido con un sonómetro.",
+      "Analizamos la escena sonora con archivos FLAC y servicios en streaming con códecs LDAC y aptX.",
+      "Ambos modelos ofrecen multipunto estable; elige Bose si priorizas comodidad y Sony si quieres más funciones smart." 
     ]
   }
 ]
