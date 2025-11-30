@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "rtx-4080-super-vs-rx-7900xtx",
+    "titulo": "RTX 4080 Super vs RX 7900 XTX: duelo de titanio para 4K",
+    "extracto": "Benchmark profundo en raster y trazado de rayos con métricas térmicas de laboratorio.",
+    "categoria": "tarjetas-graficas",
+    "marca": "nvidia",
+    "publicado": "2025-02-10",
+    "actualizado": "2025-02-15",
+    "heroImage": "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "RTX 4080 Super vs RX 7900 XTX: benchmarks reales | Opiniones Electrónicas",
+    "metaDescription": "Pruebas 4K, consumo, ruido y recomendaciones de compra según perfiles de uso y presupuestos.",
+    "ogImage": "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["RTX 4080 Super", "RX 7900 XTX", "benchmarks 4K", "comparativa GPUs"],
+    "puntuacion": 4.8,
+    "destacados": ["DLSS 3.5 brilla en trazado de rayos", "Radeon ofrece mejor rendimiento por euro en raster", "Consumo medio 320W con undervolt estable"],
+    "contenido": [
+      "Probamos ambas GPUs en un banco de pruebas con Ryzen 9 7950X3D, 32 GB DDR5-6000 CL30 y fuente de 1000W con certificación Platinum.",
+      "En 4K rasterizado, la RX 7900 XTX aventaja un 6% medio, mientras que en ray tracing la RTX 4080 Super recupera un 14% gracias a DLSS.",
+      "Recomendamos la RTX 4080 Super para creadores que usan CUDA/Studio y la Radeon para gamers que priorizan FPS sin RT." 
+    ]
+  },
+  {
+    "slug": "thinkpad-x1-carbon-2025",
+    "titulo": "Review Lenovo ThinkPad X1 Carbon (Gen 13): ultraligero sin renunciar a puertos",
+    "extracto": "Autonomía, teclado legendario y servicios Premier Support puestos a prueba en viajes reales.",
+    "categoria": "portatiles-productividad",
+    "marca": "lenovo",
+    "publicado": "2025-03-01",
+    "actualizado": "2025-03-04",
+    "heroImage": "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Review Lenovo ThinkPad X1 Carbon Gen 13 | Opiniones Electrónicas",
+    "metaDescription": "Pruebas de autonomía, pantalla y durabilidad del chasis con consejos de compra para profesionales en movimiento.",
+    "ogImage": "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["ThinkPad X1 Carbon", "portátil profesional", "review Lenovo"],
+    "puntuacion": 4.7,
+    "destacados": ["14 horas de autonomía mixta", "Teclado con recorrido clásico y resistencia a derrames", "Mantiene HDMI y USB-A junto a Thunderbolt 4"],
+    "contenido": [
+      "Usamos el X1 Carbon como equipo principal durante 10 días en oficina y en desplazamientos en tren y avión.",
+      "El panel OLED 120 Hz entrega 100% DCI-P3 y 430 nits sostenidos en SDR, excelente para edición ligera.",
+      "La temperatura del chasis se mantiene en 43ºC bajo carga sostenida gracias a un perfil de ventilación conservador." 
+    ]
+  },
+  {
+    "slug": "sony-wh1000xm5-frente-a-bose-quietcomfort",
+    "titulo": "Sony WH-1000XM5 vs Bose QuietComfort: ¿quién domina la cancelación?",
+    "extracto": "Comparativa a fondo de ANC, confort y calidad de llamadas con pruebas en oficina y transporte.",
+    "categoria": "audio-premium",
+    "marca": "sony",
+    "publicado": "2025-01-20",
+    "actualizado": "2025-01-22",
+    "heroImage": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Sony WH-1000XM5 vs Bose QuietComfort: review definitiva | Opiniones Electrónicas",
+    "metaDescription": "Mediciones de cancelación de ruido, calidad de micrófono y perfiles de sonido para elegir el mejor premium.",
+    "ogImage": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["Sony WH-1000XM5", "Bose QuietComfort", "auriculares ANC"],
+    "puntuacion": 4.6,
+    "destacados": ["Sony lidera en personalización y apps", "Bose ofrece mayor confort en sesiones largas", "Micrófonos de Bose recogen menos ruido de viento"],
+    "contenido": [
+      "Realizamos pruebas en open space, cafetería y vagón de metro midiendo la atenuación de ruido con un sonómetro.",
+      "Analizamos la escena sonora con archivos FLAC y servicios en streaming con códecs LDAC y aptX.",
+      "Ambos modelos ofrecen multipunto estable; elige Bose si priorizas comodidad y Sony si quieres más funciones smart." 
+    ]
+  }
+]

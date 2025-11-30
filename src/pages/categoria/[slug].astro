@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { findCategory, getArticlesByCategory, getBrands, getSiteInfo } from '../../utils/data';
+
+export async function getStaticPaths() {
+  const { getCategories } = await import('../../utils/data');
+  return getCategories().map((category) => ({ params: { slug: category.slug } }));
+}
+
+const { slug } = Astro.params;
+const category = findCategory(slug!);
+const site = getSiteInfo();
+
+if (!category) {
+  throw new Error(`Categoría no encontrada: ${slug}`);
+}
+
+const articles = getArticlesByCategory(category.slug);
+const relatedBrands = getBrands().filter((brand) => articles.some((a) => a.marca === brand.slug));
+const url = `https://opinioneselectronicas.com/categoria/${category.slug}/`;
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: category.metaTitle,
+  description: category.metaDescription,
+  url,
+  about: category.nombre,
+  mainEntity: articles.map((article) => ({
+    '@type': 'TechArticle',
+    headline: article.titulo,
+    datePublished: article.publicado,
+    dateModified: article.actualizado,
+    image: article.heroImage,
+    url: `https://opinioneselectronicas.com/articulo/${article.slug}/`
+  }))
+};
+---
+<BaseLayout
+  title={category.metaTitle}
+  description={category.metaDescription}
+  image={category.ogImage}
+  url={url}
+  keywords={[category.nombre, 'guía de compra', 'comparativas']}
+>
+  <div class="container">
+    <div class="hero">
+      <div>
+        <div class="badge">Categoría</div>
+        <h1>{category.nombre}</h1>
+        <p>{category.descripcion}</p>
+        <div class="tag-list">
+          <span class="tag">Benchmarks</span>
+          <span class="tag">Consejos de tienda</span>
+          <span class="tag">Actualizado</span>
+        </div>
+      </div>
+      <img src={category.heroImage} alt={`Imagen de ${category.nombre}`} loading="lazy" />
+    </div>
+
+    <section>
+      <div class="section-title">
+        <h2>Artículos destacados</h2>
+        <span class="meta">{articles.length} análisis en esta categoría</span>
+      </div>
+      <div class="grid grid-3">
+        {articles.map((article) => (
+          <article class="card" key={article.slug}>
+            <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
+            <div class="meta">Actualizado {article.actualizado}</div>
+            <h3 style="margin:0.5rem 0;">{article.titulo}</h3>
+            <p class="meta">{article.extracto}</p>
+            <a class="button secondary" href={`/articulo/${article.slug}`}>Leer análisis</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Marcas analizadas</h2>
+      </div>
+      <div class="grid grid-4">
+        {relatedBrands.map((brand) => (
+          <div class="card" key={brand.slug}>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <img src={brand.logo} alt={`Logo ${brand.nombre}`} style="max-width:120px;max-height:40px;object-fit:contain;" loading="lazy" />
+              <strong>{brand.nombre}</strong>
+            </div>
+            <p class="meta" style="margin-top:0.5rem;">{brand.descripcion}</p>
+            <a class="button secondary" href={`/marca/${brand.slug}`}>Ver ficha</a>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)}></script>
+</BaseLayout>
