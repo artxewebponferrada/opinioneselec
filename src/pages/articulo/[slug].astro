@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { findArticle, findBrand, findCategory, getSiteInfo } from '../../utils/data';
+
+export async function getStaticPaths() {
+  const { getArticles } = await import('../../utils/data');
+  return getArticles().map((article) => ({ params: { slug: article.slug } }));
+}
+
+const { slug } = Astro.params;
+const article = findArticle(slug!);
+const site = getSiteInfo();
+
+if (!article) {
+  throw new Error(`Artículo no encontrado: ${slug}`);
+}
+
+const category = findCategory(article.categoria);
+const brand = findBrand(article.marca);
+const url = `https://opinioneselectronicas.com/articulo/${article.slug}/`;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: article.titulo,
+  description: article.metaDescription,
+  image: article.heroImage,
+  datePublished: article.publicado,
+  dateModified: article.actualizado,
+  mainEntityOfPage: url,
+  keywords: article.palabrasClave,
+  author: {
+    '@type': 'Person',
+    name: site.author.name
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: site.title,
+    logo: site.defaultImage
+  }
+};
+---
+<BaseLayout
+  title={article.metaTitle}
+  description={article.metaDescription}
+  image={article.ogImage}
+  url={url}
+  type="article"
+  published={article.publicado}
+  updated={article.actualizado}
+  keywords={article.palabrasClave}
+>
+  <article class="container">
+    <div class="hero hero-accent card">
+      <div>
+        <div class="badge">Análisis experto</div>
+        <h1 style="margin:0.5rem 0 0.25rem;">{article.titulo}</h1>
+        <div class="meta">Por {site.author.name} · {article.actualizado}</div>
+        <div class="tag-list">
+          <span class="tag">{category?.nombre}</span>
+          <span class="tag">{brand?.nombre}</span>
+          <span class="tag">Puntuación {article.puntuacion}</span>
+        </div>
+      </div>
+      <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
+    </div>
+
+    <div class="grid grid-3" style="margin-top:1rem; align-items:start;">
+      <div class="card article-body" style="grid-column: span 2;">
+        {article.contenido.map((block, idx) => (
+          <section class="article-section" key={`${article.slug}-section-${idx}`} set:html={block}></section>
+        ))}
+      </div>
+      <aside class="card sticky-card" style="height:100%;">
+        <p class="eyebrow">Puntos clave</p>
+        <h3 style="margin-top:0;">Lo esencial</h3>
+        <ul style="padding-left:1.1rem;color:#cbd5e1;display:grid;gap:0.5rem;">
+          {article.destacados.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+        <div class="table-rows" style="margin-top:1rem;">
+          <div class="table-row"><span>Actualizado</span><span>{article.actualizado}</span></div>
+          <div class="table-row"><span>Categoría</span><span>{category?.nombre}</span></div>
+          <div class="table-row"><span>Marca</span><span>{brand?.nombre}</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <section>
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">Recomendación rápida</p>
+          <h2>Qué comprar sin perder tiempo</h2>
+        </div>
+      </div>
+      <div class="card">
+        <p class="meta">Si buscas trazado de rayos y compatibilidad con software profesional, elige la opción con mejor soporte Studio. Para maximizar FPS en rasterizado, prioriza la alternativa con mejor rendimiento por euro.</p>
+        <div class="flex" style="margin-top:1rem;">
+          {category ? <a class="pill pill-ghost" href={`/categoria/${category.slug}`}>Volver a la categoría</a> : null}
+          {brand ? <a class="pill pill-ghost" href={`/marca/${brand.slug}`}>Ver más de {brand.nombre}</a> : null}
+        </div>
+      </div>
+    </section>
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+</BaseLayout>

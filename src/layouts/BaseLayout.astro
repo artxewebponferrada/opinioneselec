@@ -1,0 +1,94 @@
+---
+import SEO from '../components/SEO.astro';
+import { getSiteInfo } from '../utils/data';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  url: string;
+  type?: 'website' | 'article';
+  published?: string;
+  updated?: string;
+  keywords?: string[];
+}
+
+const site = getSiteInfo();
+const props = Astro.props;
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.title,
+  url: 'https://opinioneselectronicas.com',
+  description: site.description,
+  logo: site.defaultImage,
+  sameAs: Object.values(site.social)
+};
+---
+<html lang="es">
+  <head>
+    <SEO {...props} site={site} />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)}></script>
+  </head>
+  <body class="page-shell">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <header class="header">
+      <div class="container nav-bar">
+        <a href="/" class="brand" aria-label="Ir al inicio">
+          <span class="logo-dot" aria-hidden="true">OE</span>
+          <div>
+            <strong>Opiniones Electrónicas</strong>
+            <span class="brand-sub">Hardware, portátiles y audio</span>
+          </div>
+        </a>
+        <nav aria-label="Principal">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/categoria/tarjetas-graficas">Comparativas</a></li>
+            <li><a href="/marca/nvidia">Marcas</a></li>
+            <li><a href="/busqueda">Búsqueda</a></li>
+          </ul>
+        </nav>
+        <div class="nav-cta">
+          <a class="pill" href="/busqueda">Lo último</a>
+          <a class="pill pill-ghost" href="#footer">Contacto</a>
+        </div>
+      </div>
+    </header>
+    <main id="contenido" class="page">
+      <slot />
+    </main>
+    <footer id="footer" class="footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="eyebrow">Sobre Opiniones Electrónicas</p>
+          <h3>Confianza técnica con EEAT real</h3>
+          <p class="meta">{site.description}</p>
+          <div class="pill-group">
+            <span class="pill">20 años en mostrador</span>
+            <span class="pill pill-ghost">10 años diseñando webs</span>
+            <span class="pill pill-ghost">Respuestas honestas</span>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Categorías</p>
+          <ul class="link-list">
+            <li><a href="/categoria/tarjetas-graficas">Tarjetas gráficas</a></li>
+            <li><a href="/categoria/portatiles-productividad">Portátiles</a></li>
+            <li><a href="/categoria/audio-premium">Audio premium</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <p class="meta">{site.author.email}</p>
+          <div class="pill-group">
+            <a class="pill pill-ghost" href={site.social.x}>X</a>
+            <a class="pill pill-ghost" href={site.social.linkedin}>LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
