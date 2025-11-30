@@ -133,6 +133,30 @@ const webSiteSchema = {
       </div>
     </section>
 
+    <section class="surface">
+      <div class="section-title">
+        <h2>Top puntuaciones de la semana</h2>
+        <a href="/busqueda">Filtrar por nota</a>
+      </div>
+      <div class="grid grid-3">
+        {highlightedArticles.map((article) => (
+          <article class="card highlight" key={article.slug}>
+            <div class="highlight-header">
+              <span class="pill">{article.categoria}</span>
+              <span class="score">{article.puntuacion.toFixed(1)}</span>
+            </div>
+            <h3>{article.titulo}</h3>
+            <p class="meta">{article.extracto}</p>
+            <div class="tag-list">
+              <span class="tag">{article.marca}</span>
+              <span class="tag">Actualizado {article.actualizado}</span>
+            </div>
+            <a class="button secondary" style="margin-top:0.85rem;" href={`/articulo/${article.slug}`}>Leer por qué tiene esa nota</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section>
       <div class="section-title">
         <h2>Top puntuaciones de la semana</h2>
