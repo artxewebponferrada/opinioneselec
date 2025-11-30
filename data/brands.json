@@ -25,5 +25,41 @@
     "metaTitle": "Analizamos Lenovo: ThinkPad, Yoga y Legion | Opiniones Electrónicas",
     "metaDescription": "Pruebas de durabilidad, ergonomía y servicio posventa de los equipos Lenovo más demandados.",
     "ogImage": "https://images.unsplash.com/photo-1507209696998-3c532be9b2b6?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "sony",
+    "nombre": "Sony",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/22/Sony_logo.svg",
+    "descripcion": "Audio premium, cámaras y accesorios con enfoque en calidad de sonido y diseño.",
+    "metaTitle": "Reviews Sony: audio y cámaras con nota real | Opiniones Electrónicas",
+    "metaDescription": "Medimos ANC, micrófonos y ergonomía en auriculares y cámaras Sony con pruebas de campo.",
+    "ogImage": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "elgato",
+    "nombre": "Elgato",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Elgato_logo.svg",
+    "descripcion": "Capturadoras y periféricos de streaming probados en directos reales.",
+    "metaTitle": "Guías Elgato: capturadoras y micros puntuados | Opiniones Electrónicas",
+    "metaDescription": "Analizamos latencia, compatibilidad y facilidad de uso de los accesorios Elgato más usados.",
+    "ogImage": "https://images.unsplash.com/photo-1527443224154-dc2a83c0b0b9?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "apple",
+    "nombre": "Apple",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+    "descripcion": "Ecosistema creativo con iPad, Mac y accesorios analizados por productividad y longevidad.",
+    "metaTitle": "Reviews Apple con foco en puntuación real | Opiniones Electrónicas",
+    "metaDescription": "Probamos equipos Apple valorando autonomía, servicios y flujo de trabajo híbrido.",
+    "ogImage": "https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "slug": "asus",
+    "nombre": "ASUS",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/1/1a/AsusTek-black-logo.svg",
+    "descripcion": "Portátiles y monitores creativos con puntuaciones en color, rendimiento y refrigeración.",
+    "metaTitle": "Cobertura ASUS: Zenbook, ROG y ProArt con datos | Opiniones Electrónicas",
+    "metaDescription": "Benchmarks y calibraciones de equipos ASUS para creadores y gamers con notas claras.",
+    "ogImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80"
   }
 ]

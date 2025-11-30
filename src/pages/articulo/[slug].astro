@@ -51,47 +51,151 @@ const articleSchema = {
   keywords={article.palabrasClave}
 >
   <article class="container">
-    <div class="badge">Análisis experto</div>
-    <h1 style="margin:0.5rem 0 0.25rem;">{article.titulo}</h1>
-    <div class="meta">Por {site.author.name} · {article.actualizado}</div>
-    <div class="tag-list">
-      <span class="tag">{category?.nombre}</span>
-      <span class="tag">{brand?.nombre}</span>
-      <span class="tag">Puntuación {article.puntuacion}</span>
-    </div>
-    <img class="cover-image" src={article.heroImage} alt={article.titulo} style="margin:1rem 0;" loading="lazy" />
-
-    <div class="grid grid-3">
-      <div class="card" style="grid-column: span 2;">
-        {article.contenido.map((paragraph) => (
-          <p class="meta" style="color:var(--text);line-height:1.7;font-size:1.05rem;" key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
-      <aside class="card" style="height:100%;">
-        <h3 style="margin-top:0;">Puntos clave</h3>
-        <ul style="padding-left:1.1rem;color:var(--muted);display:grid;gap:0.5rem;">
-          {article.destacados.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-        <div class="table-rows" style="margin-top:1rem;">
-          <div class="table-row"><span>Actualizado</span><span>{article.actualizado}</span></div>
-          <div class="table-row"><span>Categoría</span><span>{category?.nombre}</span></div>
-          <div class="table-row"><span>Marca</span><span>{brand?.nombre}</span></div>
+    <section class="article-hero">
+      <div class="hero-copy">
+        <div class="badge">Análisis experto</div>
+        <h1>{article.titulo}</h1>
+        <p class="meta">Por {site.author.name} · {article.actualizado}</p>
+        <div class="tag-list">
+          <span class="tag">{category?.nombre}</span>
+          <span class="tag">{brand?.nombre}</span>
+          <span class="tag">Nota {article.puntuacion}</span>
         </div>
+        {article?.review?.resumen && <p class="lede">{article.review.resumen}</p>}
+        <div class="score-pill">
+          <div>
+            <span class="score-value">{article.puntuacion}</span>
+            <span class="score-label">Valoración editorial</span>
+          </div>
+          <div class="score-context">Puntuamos pruebas reales y opinión honesta con peso en calidad/precio.</div>
+        </div>
+      </div>
+      <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
+    </section>
+
+    <div class="content-grid">
+      <div class="content-main">
+        <div class="card surface">
+          <div class="section-title">
+            <h2>Resumen rápido</h2>
+            <span class="chip">Lectura de 3 min</span>
+          </div>
+          {article.contenido.map((paragraph) => (
+            <p class="body-text" key={paragraph}>{paragraph}</p>
+          ))}
+          {article?.review?.secciones?.map((block) => (
+            <div class="article-block" key={block.titulo}>
+              <div class="block-head">
+                <div>
+                  <p class="eyebrow">{block.tipo ?? 'Hallazgo'}</p>
+                  <h3>{block.titulo}</h3>
+                </div>
+                {block?.puntuacion ? <div class="mini-score">{block.puntuacion}</div> : null}
+              </div>
+              {block?.puntos ? (
+                <ul class="bullet-list">
+                  {block.puntos.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {block?.parrafo ? <p class="body-text">{block.parrafo}</p> : null}
+            </div>
+          ))}
+        </div>
+
+        {article?.review?.notaFinal ? (
+          <section class="card highlight">
+            <div class="section-title">
+              <h2>Veredicto</h2>
+              <div class="mini-score">{article.review.notaFinal}</div>
+            </div>
+            <p class="body-text">{article.review.veredicto}</p>
+            <div class="meta grid score-grid">
+              {article.review.puntuaciones?.map((score) => (
+                <div class="score-item" key={score.nombre}>
+                  <div class="score-top">
+                    <span>{score.nombre}</span>
+                    <strong>{score.valor}</strong>
+                  </div>
+                  <div class="score-bar">
+                    <span style={`width:${(score.valor / 5) * 100}%`}></span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <section class="card">
+          <div class="section-title">
+            <h2>Recomendación rápida</h2>
+            <span class="chip ghost">Guía de compra</span>
+          </div>
+          <p class="body-text">Si buscas trazado de rayos y compatibilidad con software profesional, elige la opción con mejor soporte Studio. Para maximizar FPS en rasterizado, prioriza la alternativa con mejor rendimiento por euro.</p>
+          <div class="cta-row">
+            {category ? <a class="button secondary" href={`/categoria/${category.slug}`}>Volver a la categoría</a> : null}
+            {brand ? <a class="button secondary" href={`/marca/${brand.slug}`}>Ver más de {brand.nombre}</a> : null}
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <div class="card sticky-card">
+          <div class="section-title">
+            <h3>Puntos clave</h3>
+            <span class="mini-score">{article.puntuacion}</span>
+          </div>
+          <ul class="bullet-list">
+            {article.destacados.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div class="table-rows">
+            <div class="table-row"><span>Actualizado</span><span>{article.actualizado}</span></div>
+            <div class="table-row"><span>Categoría</span><span>{category?.nombre}</span></div>
+            <div class="table-row"><span>Marca</span><span>{brand?.nombre}</span></div>
+          </div>
+        </div>
+
+        {article?.review?.pros || article?.review?.contras ? (
+          <div class="card pros-cons">
+            <div>
+              <p class="eyebrow">Lo mejor</p>
+              <ul class="bullet-list">
+                {article.review?.pros?.map((pro) => (
+                  <li key={pro}>{pro}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p class="eyebrow">A mejorar</p>
+              <ul class="bullet-list muted">
+                {article.review?.contras?.map((con) => (
+                  <li key={con}>{con}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : null}
+
+        {article?.review?.ficha ? (
+          <div class="card fact-sheet">
+            <div class="section-title">
+              <h3>Ficha rápida</h3>
+            </div>
+            <ul class="table-rows">
+              {Object.entries(article.review.ficha).map(([label, value]) => (
+                <li class="table-row" key={label}>
+                  <span>{label}</span>
+                  <span>{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </aside>
     </div>
-
-    <section>
-      <div class="section-title">
-        <h2>Recomendación rápida</h2>
-      </div>
-      <div class="card">
-        <p class="meta">Si buscas trazado de rayos y compatibilidad con software profesional, elige la opción con mejor soporte Studio. Para maximizar FPS en rasterizado, prioriza la alternativa con mejor rendimiento por euro.</p>
-        <div class="flex" style="margin-top:1rem;">
-          {category ? <a class="button secondary" href={`/categoria/${category.slug}`}>Volver a la categoría</a> : null}
-          {brand ? <a class="button secondary" href={`/marca/${brand.slug}`}>Ver más de {brand.nombre}</a> : null}
-        </div>
-      </div>
-    </section>
   </article>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
 </BaseLayout>

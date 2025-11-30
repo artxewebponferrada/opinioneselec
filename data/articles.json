@@ -38,8 +38,75 @@
     "contenido": [
       "Usamos el X1 Carbon como equipo principal durante 10 días en oficina y en desplazamientos en tren y avión.",
       "El panel OLED 120 Hz entrega 100% DCI-P3 y 430 nits sostenidos en SDR, excelente para edición ligera.",
-      "La temperatura del chasis se mantiene en 43ºC bajo carga sostenida gracias a un perfil de ventilación conservador." 
-    ]
+      "La temperatura del chasis se mantiene en 43ºC bajo carga sostenida gracias a un perfil de ventilación conservador."
+    ],
+    "review": {
+      "resumen": "Probamos la Gen 13 con Core Ultra 7 y 32 GB LPDDR5x viajando y trabajando en remoto para valorar autonomía real, fiabilidad y ergonomía.",
+      "notaFinal": 4.7,
+      "veredicto": "Sigue siendo el ultraligero empresarial de referencia: autonomía sólida, chasis ligero y puertos completos. Solo el precio y el thermal throttling leve en modo ultra silencioso le restan la nota perfecta.",
+      "puntuaciones": [
+        { "nombre": "Autonomía", "valor": 4.8 },
+        { "nombre": "Pantalla", "valor": 4.6 },
+        { "nombre": "Teclado/trackpad", "valor": 4.9 },
+        { "nombre": "Puertos y conectividad", "valor": 4.7 },
+        { "nombre": "Silencio/temperatura", "valor": 4.3 }
+      ],
+      "secciones": [
+        {
+          "tipo": "Prueba de campo",
+          "titulo": "Autonomía y carga en viajes",
+          "puntuacion": 4.8,
+          "puntos": [
+            "14h de uso mixto ofimática + Slack con brillo al 60% y Wi-Fi 6E",
+            "Carga rápida al 80% en 47 minutos con el cargador de 65W incluido",
+            "El cargador GaN de 45W mantiene 25W sostenidos pero reduce algo el turbo"
+          ],
+          "parrafo": "En tren AVE y vuelos de dos horas mantuvo 9h de autonomía con VPN y videollamadas. La batería cae a unas 6h si activas el modo rendimiento al exportar vídeo 4K corto."
+        },
+        {
+          "tipo": "Experiencia",
+          "titulo": "Teclado y construcción",
+          "puntuacion": 4.9,
+          "puntos": [
+            "Recorrido de 1.5 mm con curva de fuerza progresiva",
+            "Resistencia a derrames validada con prueba de 30 ml de agua",
+            "Bisagras firmes con apertura 180° sin crujidos"
+          ],
+          "parrafo": "La escritura sigue siendo la mejor de su clase; en sesiones de 3.000 palabras mantiene la precisión. El chasis CFRP apenas flexa al presionar y el acabado suave resiste huellas."
+        },
+        {
+          "tipo": "Mediciones",
+          "titulo": "Pantalla y térmicas",
+          "puntuacion": 4.4,
+          "puntos": [
+            "OLED 2.8K a 120 Hz con DeltaE 1.8 tras calibración",
+            "Brillo sostenido de 430 nits en SDR y 590 nits en HDR pico",
+            "43 ºC máximos en reposamuñecas con modo equilibrado"
+          ],
+          "parrafo": "El modo silencioso limita el turbo a 18W y provoca algo de throttling en Cinebench, pero a cambio mantiene ruido bajo (35 dBA) y temperaturas amigables."
+        }
+      ],
+      "pros": [
+        "Teclado y trackpoint sobresalientes para escribir todo el día",
+        "Autonomía real de jornada completa sin sacrificar brillo",
+        "Puertos variados: HDMI, USB-A, 2x Thunderbolt 4 y lector de huellas",
+        "Pantalla OLED 120 Hz precisa y fluida"
+      ],
+      "contras": [
+        "Precio premium incluso en configuraciones i5/16 GB",
+        "Algo de thermal throttling en modo silencioso",
+        "Cámara IR correcta pero sin obturador físico"
+      ],
+      "ficha": {
+        "Peso": "1.09 kg",
+        "Pantalla": "14\" OLED 2.8K 120 Hz, 100% DCI-P3",
+        "CPU": "Intel Core Ultra 7 165H",
+        "Memoria": "32 GB LPDDR5x 7467 MHz",
+        "Almacenamiento": "SSD 1 TB PCIe 4.0",
+        "Puertos": "2x Thunderbolt 4, USB-A, HDMI, jack 3.5mm",
+        "Batería": "57 Wh, carga rápida 65W"
+      }
+    }
   },
   {
     "slug": "sony-wh1000xm5-frente-a-bose-quietcomfort",
@@ -59,7 +126,70 @@
     "contenido": [
       "Realizamos pruebas en open space, cafetería y vagón de metro midiendo la atenuación de ruido con un sonómetro.",
       "Analizamos la escena sonora con archivos FLAC y servicios en streaming con códecs LDAC y aptX.",
-      "Ambos modelos ofrecen multipunto estable; elige Bose si priorizas comodidad y Sony si quieres más funciones smart." 
+      "Ambos modelos ofrecen multipunto estable; elige Bose si priorizas comodidad y Sony si quieres más funciones smart."
+    ]
+  },
+  {
+    "slug": "setup-streaming-calidad-precio-2025",
+    "titulo": "Setup de streaming 2025: micrófonos y capturadoras que puntúan alto",
+    "extracto": "Comparamos latencia, claridad de voz y facilidad de montaje para streamers principiantes y avanzados.",
+    "categoria": "perifericos-streaming",
+    "marca": "elgato",
+    "publicado": "2025-02-02",
+    "actualizado": "2025-02-08",
+    "heroImage": "https://images.unsplash.com/photo-1527443224154-dc2a83c0b0b9?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Setup de streaming 2025: mejores micros y capturadoras | Opiniones Electrónicas",
+    "metaDescription": "Probamos capturadoras, micrófonos USB/XLR y brazos articulados valorando nota de claridad, latencia y montaje.",
+    "ogImage": "https://images.unsplash.com/photo-1527443224154-dc2a83c0b0b9?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["setup streaming", "mejores micrófonos", "capturadora 4K"],
+    "puntuacion": 4.5,
+    "destacados": ["Wave:3 consigue la mejor nota en claridad por euro", "HD60 X destaca en latencia baja estable", "Probamos soportes que no transmiten vibraciones a la voz"],
+    "contenido": [
+      "Montamos tres setups en escritorio compacto, midiendo latencia con cámara 120 fps y capturas a 1440p.",
+      "Comparamos perfiles de voz con EQ plana y con presets de streaming en OBS y Wave Link.",
+      "Las notas priorizan facilidad de uso y estabilidad en directos largos de 3 horas."
+    ]
+  },
+  {
+    "slug": "ipad-pro-m4-vs-surface-pro-10",
+    "titulo": "iPad Pro M4 vs Surface Pro 10: creatividad móvil con nota",
+    "extracto": "Benchmark de lápiz, apps creativas y autonomía real para elegir la tableta que suma más puntos.",
+    "categoria": "tabletas-creativas",
+    "marca": "apple",
+    "publicado": "2025-03-06",
+    "actualizado": "2025-03-09",
+    "heroImage": "https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "iPad Pro M4 vs Surface Pro 10: comparativa creativa | Opiniones Electrónicas",
+    "metaDescription": "Pruebas de lápiz, colorimetría, apps y conectividad. Ponemos nota a la mejor tableta para diseñar y estudiar.",
+    "ogImage": "https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["iPad Pro M4", "Surface Pro 10", "tableta para diseño"],
+    "puntuacion": 4.9,
+    "destacados": ["Apple Pencil Pro tiene la latencia más baja", "Surface gana en puertos y modo portátil", "Ambas superan las 9 horas de uso mixto"],
+    "contenido": [
+      "Probamos apps como Procreate, Affinity Designer y Figma en web para medir fluidez y consumo.",
+      "Medimos precisión de color en Pantone y sRGB con colorímetro i1Display.",
+      "La puntuación final pondera accesorios incluidos, servicio técnico y compatibilidad con monitores externos."
+    ]
+  },
+  {
+    "slug": "monitor-creator-4k-2025",
+    "titulo": "Los mejores monitores 4K para creadores en 2025",
+    "extracto": "Ranking con nota de color, conexiones y ergonomía para editar vídeo o ilustrar sin fatiga.",
+    "categoria": "monitores-creativos",
+    "marca": "asus",
+    "publicado": "2025-01-30",
+    "actualizado": "2025-02-03",
+    "heroImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=80",
+    "metaTitle": "Monitores 4K para creadores: ranking 2025 | Opiniones Electrónicas",
+    "metaDescription": "Comparativa de monitores 4K con DeltaE, HDR y ergonomía puntuados tras calibración y uso diario.",
+    "ogImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80",
+    "palabrasClave": ["monitor 4K", "creadores", "calibración"],
+    "puntuacion": 4.4,
+    "destacados": ["Paneles IPS con DeltaE < 2", "Incluimos monitores con USB-C 90W", "Altura y rotación ajustable sin crujidos"],
+    "contenido": [
+      "Probamos cobertura de color con DisplayCAL y revisamos uniformidad de brillo en 25 zonas.",
+      "Asignamos puntuación a la ergonomía, conectividad y garantía in situ.",
+      "Recomendaciones separadas por presupuesto y tamaño."
     ]
   }
 ]
