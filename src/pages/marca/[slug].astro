@@ -19,13 +19,63 @@ const articles = getArticlesByBrand(brand.slug);
 const categories = getCategories().filter((category) => articles.some((a) => a.categoria === category.slug));
 const url = `https://opinioneselectronicas.com/marca/${brand.slug}/`;
 
+const avgScore = articles.length > 0
+  ? (articles.reduce((acc, a) => acc + a.puntuacion, 0) / articles.length).toFixed(1)
+  : '0';
+
+const topArticles = [...articles].sort((a, b) => b.puntuacion - a.puntuacion).slice(0, 3);
+const recentArticles = [...articles].sort((a, b) =>
+  new Date(b.actualizado).getTime() - new Date(a.actualizado).getTime()
+).slice(0, 4);
+
 const brandSchema = {
   '@context': 'https://schema.org',
   '@type': 'Brand',
   name: brand.nombre,
   description: brand.metaDescription,
   url,
-  logo: brand.logo
+  logo: brand.logo,
+  aggregateRating: articles.length > 0 ? {
+    '@type': 'AggregateRating',
+    ratingValue: avgScore,
+    reviewCount: articles.length,
+    bestRating: 5,
+    worstRating: 1
+  } : undefined
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: brand.nombre,
+  url,
+  logo: brand.logo,
+  description: brand.descripcion
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://opinioneselectronicas.com/'
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Marcas',
+      item: 'https://opinioneselectronicas.com/#marcas'
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: brand.nombre,
+      item: url
+    }
+  ]
 };
 ---
 <BaseLayout
@@ -33,58 +83,182 @@ const brandSchema = {
   description={brand.metaDescription}
   image={brand.ogImage}
   url={url}
-  keywords={[brand.nombre, 'reviews', 'comparativas']}
+  keywords={[brand.nombre, 'reviews', 'comparativas', 'análisis', 'opiniones']}
 >
-  <div class="container">
-    <div class="hero">
-      <div>
-        <div class="badge">Marca</div>
-        <h1>{brand.nombre}</h1>
-        <p>{brand.descripcion}</p>
-        <div class="tag-list">
-          <span class="tag">Garantía</span>
-          <span class="tag">Rendimiento</span>
-          <span class="tag">Servicio técnico</span>
+  <div class="container" itemscope itemtype="https://schema.org/Brand">
+    <nav aria-label="Breadcrumb" style="padding: 1rem 0 0.5rem;">
+      <ol style="display: flex; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--muted); flex-wrap: wrap;">
+        <li><a href="/" style="color: var(--muted); text-decoration: none;">Inicio</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/#marcas" style="color: var(--muted); text-decoration: none;">Marcas</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" style="color: var(--text); font-weight: 600;">{brand.nombre}</li>
+      </ol>
+    </nav>
+
+    <section class="hero" style="padding: 3rem 0 4rem;">
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+          <div style="background: white; padding: 1rem 1.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow-md);">
+            <img src={brand.logo} alt={`Logo ${brand.nombre}`} itemprop="logo" style="max-height: 60px; max-width: 200px; object-fit: contain;" loading="eager" width="200" height="60" />
+          </div>
+          <div class="badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Marca destacada</div>
+        </div>
+        <div>
+          <h1 itemprop="name" style="margin: 0 0 1rem; font-size: clamp(2.5rem, 4vw, 3.5rem); letter-spacing: -0.03em;">
+            Análisis y reviews de {brand.nombre}
+          </h1>
+          <p itemprop="description" style="font-size: 1.15rem; line-height: 1.7; color: var(--muted); max-width: 680px;">
+            {brand.descripcion}
+          </p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; max-width: 600px;">
+          <div class="signal-card">
+            <p class="signal-value">{articles.length}</p>
+            <p class="meta" style="margin: 0.25rem 0 0; font-size: 0.85rem;">Análisis publicados</p>
+          </div>
+          <div class="signal-card">
+            <p class="signal-value">{avgScore}</p>
+            <p class="meta" style="margin: 0.25rem 0 0; font-size: 0.85rem;">Nota media</p>
+          </div>
+          <div class="signal-card">
+            <p class="signal-value">{categories.length}</p>
+            <p class="meta" style="margin: 0.25rem 0 0; font-size: 0.85rem;">Categorías</p>
+          </div>
         </div>
       </div>
-      <div class="card" style="text-align:center;">
-        <img src={brand.logo} alt={`Logo ${brand.nombre}`} style="max-height:60px;object-fit:contain;margin-bottom:1rem;" />
-        <p class="meta">Cobertura independiente con métricas de laboratorio y feedback de tienda.</p>
-      </div>
-    </div>
-
-    <section>
-      <div class="section-title">
-        <h2>Artículos y reviews</h2>
-        <span class="meta">{articles.length} publicaciones</span>
-      </div>
-      <div class="grid grid-3">
-        {articles.map((article) => (
-          <article class="card" key={article.slug}>
-            <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
-            <div class="meta">Actualizado {article.actualizado}</div>
-            <h3 style="margin:0.35rem 0;">{article.titulo}</h3>
-            <p class="meta">{article.extracto}</p>
-            <a class="button secondary" href={`/articulo/${article.slug}`}>Leer review</a>
-          </article>
-        ))}
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img
+          src={articles[0]?.heroImage || brand.ogImage}
+          alt={`Productos ${brand.nombre}`}
+          loading="lazy"
+          style="width: 100%; max-width: 500px; border-radius: 24px; box-shadow: var(--shadow-lg); object-fit: cover; aspect-ratio: 4/3;"
+        />
       </div>
     </section>
 
-    <section>
+    {topArticles.length > 0 && (
+      <section style="padding: 2rem 0 3rem;">
+        <div class="section-title">
+          <h2 style="margin: 0; font-size: 1.75rem;">Productos mejor valorados de {brand.nombre}</h2>
+          <span class="meta">{topArticles.length} destacados</span>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          {topArticles.map((article, index) => (
+            <article class="card highlight" key={article.slug} style="position: relative; overflow: hidden;">
+              {index === 0 && (
+                <div style="position: absolute; top: 1rem; right: 1rem; background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; padding: 0.35rem 0.75rem; border-radius: 999px; font-weight: 800; font-size: 0.85rem; box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);">
+                  Top 1
+                </div>
+              )}
+              <a href={`/articulo/${article.slug}`} style="display: block; text-decoration: none; color: inherit;">
+                <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" style="height: 200px; object-fit: cover; margin-bottom: 1rem;" />
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span class="tag" style="background: var(--secondary-light); color: var(--secondary);">{article.categoria}</span>
+                  <div class="mini-score" style="background: linear-gradient(135deg, var(--primary), #ff7c5f); color: white;">
+                    {article.puntuacion}
+                  </div>
+                </div>
+                <h3 style="margin: 0.5rem 0; font-size: 1.1rem; line-height: 1.4;">{article.titulo}</h3>
+                <p class="meta" style="margin: 0.5rem 0 0; line-height: 1.6;">{article.extracto.substring(0, 100)}...</p>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section style="padding: 2rem 0;">
       <div class="section-title">
-        <h2>Categorías relacionadas</h2>
+        <h2 style="margin: 0; font-size: 1.75rem;">Últimos análisis de {brand.nombre}</h2>
+        <span class="meta">{articles.length} total</span>
       </div>
-      <div class="grid grid-4">
-        {categories.map((category) => (
-          <div class="card" key={category.slug}>
-            <h3 style="margin-top:0;">{category.nombre}</h3>
-            <p class="meta">{category.resumen}</p>
-            <a class="button secondary" href={`/categoria/${category.slug}`}>Ver comparativas</a>
-          </div>
+      <div class="grid grid-3">
+        {recentArticles.map((article) => (
+          <article class="card" key={article.slug} style="transition: all 200ms ease; display: flex; flex-direction: column;">
+            <a href={`/articulo/${article.slug}`} style="text-decoration: none; color: inherit; flex: 1; display: flex; flex-direction: column;">
+              <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" style="height: 180px; object-fit: cover;" />
+              <div class="meta" style="margin: 0.75rem 0 0.35rem;">
+                Actualizado <time datetime={article.actualizado}>{article.actualizado}</time>
+              </div>
+              <h3 style="margin: 0 0 0.5rem; font-size: 1.05rem; line-height: 1.4; flex: 1;">{article.titulo}</h3>
+              <p class="meta" style="margin: 0.5rem 0;">{article.extracto.substring(0, 120)}...</p>
+              <div style="display: flex; gap: 0.5rem; margin-top: auto; padding-top: 0.75rem;">
+                <span class="tag">{article.categoria}</span>
+                <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700;">
+                  {article.puntuacion}
+                </span>
+              </div>
+            </a>
+          </article>
         ))}
+      </div>
+      {articles.length > recentArticles.length && (
+        <div style="display: flex; justify-content: center; margin-top: 2rem;">
+          <button class="button secondary" onclick="document.querySelectorAll('article.card').forEach(el => el.style.display = 'flex')" style="cursor: pointer;">
+            Ver todos los análisis ({articles.length})
+          </button>
+        </div>
+      )}
+    </section>
+
+    {categories.length > 0 && (
+      <section class="card" style="padding: 2rem; background: linear-gradient(135deg, var(--primary-light), var(--secondary-light)); border: none;">
+        <div class="section-title">
+          <h2 style="margin: 0; font-size: 1.75rem;">Categorías de productos {brand.nombre}</h2>
+        </div>
+        <div class="grid grid-4" style="margin-top: 1.5rem;">
+          {categories.map((category) => {
+            const categoryArticleCount = articles.filter(a => a.categoria === category.slug).length;
+            return (
+              <a href={`/categoria/${category.slug}`} key={category.slug} class="card" style="text-decoration: none; color: inherit; transition: all 200ms ease; display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <h3 style="margin: 0; font-size: 1.05rem;">{category.nombre}</h3>
+                  <span class="badge" style="font-size: 0.75rem; background: var(--primary-light);">{categoryArticleCount}</span>
+                </div>
+                <p class="meta" style="margin: 0; flex: 1; line-height: 1.5;">{category.resumen}</p>
+                <span style="color: var(--primary); font-weight: 600; font-size: 0.9rem;">Ver productos →</span>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+    <section class="card" style="padding: 2rem; margin: 2rem 0;">
+      <div style="display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div>
+          <h2 style="margin: 0 0 1rem; font-size: 1.5rem;">Por qué analizamos {brand.nombre}</h2>
+          <p style="color: var(--muted); line-height: 1.7; margin: 0;">
+            En Opiniones Electrónicas realizamos análisis independientes de productos {brand.nombre} con pruebas reales,
+            mediciones de rendimiento y evaluaciones honestas basadas en más de 20 años de experiencia en el sector tecnológico.
+          </p>
+        </div>
+        <div style="background: var(--bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border);">
+          <h3 style="margin: 0 0 1rem; font-size: 1.1rem;">Metodología de análisis</h3>
+          <ul style="margin: 0; padding-left: 1.25rem; color: var(--muted); line-height: 1.8;">
+            <li>Pruebas en escenarios reales de uso</li>
+            <li>Mediciones objetivas de rendimiento</li>
+            <li>Comparativas con productos competidores</li>
+            <li>Evaluación de relación calidad-precio</li>
+            <li>Análisis de servicio técnico y garantía</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section style="text-align: center; padding: 3rem 0;">
+      <div style="display: inline-block; padding: 2rem; border-radius: 16px; background: linear-gradient(135deg, var(--primary-light), white); border: 1px solid var(--border);">
+        <h2 style="margin: 0 0 1rem; font-size: 1.5rem;">Descubre más análisis</h2>
+        <p class="meta" style="margin: 0 0 1.5rem;">Explora nuestra colección completa de reviews y comparativas</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a class="button" href="/busqueda">Buscar productos</a>
+          <a class="button secondary" href="/">Ver todas las marcas</a>
+        </div>
       </div>
     </section>
   </div>
   <script type="application/ld+json" set:html={JSON.stringify(brandSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
 </BaseLayout>

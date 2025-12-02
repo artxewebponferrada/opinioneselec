@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { findArticle, findBrand, findCategory, getSiteInfo } from '../../utils/data';
+import { findArticle, findBrand, findCategory, getSiteInfo, getArticles } from '../../utils/data';
 
 export async function getStaticPaths() {
   const { getArticles } = await import('../../utils/data');
@@ -18,6 +18,10 @@ if (!article) {
 const category = findCategory(article.categoria);
 const brand = findBrand(article.marca);
 const url = `https://opinioneselectronicas.com/articulo/${article.slug}/`;
+
+const relatedArticles = getArticles()
+  .filter((a) => (a.categoria === article.categoria || a.marca === article.marca) && a.slug !== article.slug)
+  .slice(0, 3);
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -39,6 +43,57 @@ const articleSchema = {
     logo: site.defaultImage
   }
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Inicio',
+      item: 'https://opinioneselectronicas.com/'
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: category?.nombre || 'Categoría',
+      item: `https://opinioneselectronicas.com/categoria/${category?.slug}/`
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: article.titulo,
+      item: url
+    }
+  ]
+};
+
+const reviewSchema = article.review ? {
+  '@context': 'https://schema.org',
+  '@type': 'Review',
+  itemReviewed: {
+    '@type': 'Product',
+    name: article.titulo,
+    brand: {
+      '@type': 'Brand',
+      name: brand?.nombre
+    },
+    image: article.heroImage
+  },
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: article.puntuacion,
+    bestRating: 5,
+    worstRating: 1
+  },
+  author: {
+    '@type': 'Person',
+    name: site.author.name
+  },
+  datePublished: article.publicado,
+  reviewBody: article.review.resumen || article.extracto
+} : null;
 ---
 <BaseLayout
   title={article.metaTitle}
@@ -50,92 +105,152 @@ const articleSchema = {
   updated={article.actualizado}
   keywords={article.palabrasClave}
 >
-  <article class="container">
+  <article itemscope itemtype="https://schema.org/TechArticle" class="container">
+    <nav aria-label="Breadcrumb" style="padding: 1rem 0 0.5rem;">
+      <ol style="display: flex; gap: 0.5rem; list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: var(--muted); flex-wrap: wrap;">
+        <li><a href="/" style="color: var(--muted); text-decoration: none;">Inicio</a></li>
+        <li aria-hidden="true">/</li>
+        {category && (
+          <>
+            <li><a href={`/categoria/${category.slug}`} style="color: var(--muted); text-decoration: none;">{category.nombre}</a></li>
+            <li aria-hidden="true">/</li>
+          </>
+        )}
+        <li aria-current="page" style="color: var(--text); font-weight: 600;">{article.titulo.substring(0, 50)}...</li>
+      </ol>
+    </nav>
+
     <section class="article-hero">
       <div class="hero-copy">
         <div class="badge">Análisis experto</div>
-        <h1>{article.titulo}</h1>
-        <p class="meta">Por {site.author.name} · {article.actualizado}</p>
+        <h1 itemprop="headline">{article.titulo}</h1>
+        <p class="meta">
+          <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">Por {site.author.name}</span>
+          </span>
+          <span> · </span>
+          <time itemprop="dateModified" datetime={article.actualizado}>Actualizado {article.actualizado}</time>
+        </p>
         <div class="tag-list">
-          <span class="tag">{category?.nombre}</span>
-          <span class="tag">{brand?.nombre}</span>
-          <span class="tag">Nota {article.puntuacion}</span>
+          {category && (
+            <a href={`/categoria/${category.slug}`} class="tag clickable" rel="category tag">
+              {category.nombre}
+            </a>
+          )}
+          {brand && (
+            <a href={`/marca/${brand.slug}`} class="tag clickable" rel="tag">
+              {brand.nombre}
+            </a>
+          )}
+          <span class="tag" style="background: var(--primary-light); color: var(--primary); font-weight: 700;">
+            Nota {article.puntuacion}
+          </span>
         </div>
-        {article?.review?.resumen && <p class="lede">{article.review.resumen}</p>}
+        {article?.review?.resumen && <p class="lede" itemprop="description">{article.review.resumen}</p>}
         <div class="score-pill">
           <div>
-            <span class="score-value">{article.puntuacion}</span>
-            <span class="score-label">Valoración editorial</span>
+            <span class="score-value" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+              <meta itemprop="ratingValue" content={String(article.puntuacion)} />
+              <meta itemprop="bestRating" content="5" />
+              {article.puntuacion}
+            </span>
+            <span class="score-label">Nota editorial</span>
           </div>
-          <div class="score-context">Puntuamos pruebas reales y opinión honesta con peso en calidad/precio.</div>
+          <div class="score-context">Evaluación basada en pruebas reales, rendimiento y relación calidad-precio.</div>
         </div>
       </div>
-      <img class="cover-image" src={article.heroImage} alt={article.titulo} loading="lazy" />
+      <img class="cover-image" src={article.heroImage} alt={article.titulo} itemprop="image" loading="eager" width="600" height="400" />
     </section>
 
     <div class="content-grid">
       <div class="content-main">
-        <div class="card surface">
+        <div class="card surface" itemprop="articleBody">
           <div class="section-title">
-            <h2>Resumen rápido</h2>
+            <h2>Análisis completo</h2>
             <span class="chip">Lectura de 3 min</span>
           </div>
           {article.contenido.map((paragraph) => (
             <p class="body-text" key={paragraph}>{paragraph}</p>
           ))}
-          {article?.review?.secciones?.map((block) => (
-            <div class="article-block" key={block.titulo}>
-              <div class="block-head">
-                <div>
-                  <p class="eyebrow">{block.tipo ?? 'Hallazgo'}</p>
-                  <h3>{block.titulo}</h3>
-                </div>
-                {block?.puntuacion ? <div class="mini-score">{block.puntuacion}</div> : null}
-              </div>
-              {block?.puntos ? (
-                <ul class="bullet-list">
-                  {block.puntos.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              ) : null}
-              {block?.parrafo ? <p class="body-text">{block.parrafo}</p> : null}
-            </div>
-          ))}
         </div>
 
-        {article?.review?.notaFinal ? (
+        {article?.review?.secciones && article.review.secciones.length > 0 && (
+          <div class="card surface">
+            <h2 style="margin: 0 0 1.25rem; font-size: 1.5rem;">Análisis en detalle</h2>
+            {article.review.secciones.map((block) => (
+              <div class="article-block" key={block.titulo}>
+                <div class="block-head">
+                  <div>
+                    <p class="eyebrow">{block.tipo ?? 'Hallazgo'}</p>
+                    <h3 style="margin: 0.25rem 0 0; font-size: 1.25rem;">{block.titulo}</h3>
+                  </div>
+                  {block?.puntuacion ? <div class="mini-score">{block.puntuacion}</div> : null}
+                </div>
+                {block?.puntos && block.puntos.length > 0 && (
+                  <ul class="bullet-list">
+                    {block.puntos.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+                {block?.parrafo && <p class="body-text">{block.parrafo}</p>}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {article?.review?.notaFinal && (
           <section class="card highlight">
             <div class="section-title">
-              <h2>Veredicto</h2>
+              <h2>Veredicto final</h2>
               <div class="mini-score">{article.review.notaFinal}</div>
             </div>
-            <p class="body-text">{article.review.veredicto}</p>
-            <div class="meta grid score-grid">
-              {article.review.puntuaciones?.map((score) => (
-                <div class="score-item" key={score.nombre}>
-                  <div class="score-top">
-                    <span>{score.nombre}</span>
-                    <strong>{score.valor}</strong>
+            <p class="body-text" style="font-size: 1.1rem; line-height: 1.7;">{article.review.veredicto}</p>
+            {article.review.puntuaciones && article.review.puntuaciones.length > 0 && (
+              <div class="grid score-grid" style="margin-top: 1.5rem;">
+                {article.review.puntuaciones.map((score) => (
+                  <div class="score-item" key={score.nombre}>
+                    <div class="score-top">
+                      <span>{score.nombre}</span>
+                      <strong>{score.valor}</strong>
+                    </div>
+                    <div class="score-bar">
+                      <span style={`width:${(score.valor / 5) * 100}%`}></span>
+                    </div>
                   </div>
-                  <div class="score-bar">
-                    <span style={`width:${(score.valor / 5) * 100}%`}></span>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
+
+        {relatedArticles.length > 0 && (
+          <section class="card">
+            <div class="section-title">
+              <h2>Artículos relacionados</h2>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+              {relatedArticles.map((related) => (
+                <a href={`/articulo/${related.slug}`} key={related.slug} class="card" style="padding: 1rem; transition: all 150ms ease;">
+                  <img src={related.heroImage} alt={related.titulo} loading="lazy" style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin-bottom: 0.75rem;" />
+                  <h4 style="margin: 0 0 0.5rem; font-size: 0.95rem; line-height: 1.4;">{related.titulo}</h4>
+                  <div style="display: flex; gap: 0.35rem; align-items: center;">
+                    <span class="tag" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">Nota {related.puntuacion}</span>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </section>
-        ) : null}
+        )}
 
         <section class="card">
           <div class="section-title">
-            <h2>Recomendación rápida</h2>
-            <span class="chip ghost">Guía de compra</span>
+            <h2>Navegación</h2>
           </div>
-          <p class="body-text">Si buscas trazado de rayos y compatibilidad con software profesional, elige la opción con mejor soporte Studio. Para maximizar FPS en rasterizado, prioriza la alternativa con mejor rendimiento por euro.</p>
           <div class="cta-row">
-            {category ? <a class="button secondary" href={`/categoria/${category.slug}`}>Volver a la categoría</a> : null}
-            {brand ? <a class="button secondary" href={`/marca/${brand.slug}`}>Ver más de {brand.nombre}</a> : null}
+            {category && <a class="button secondary" href={`/categoria/${category.slug}`}>Ver más en {category.nombre}</a>}
+            {brand && <a class="button secondary" href={`/marca/${brand.slug}`}>Todos los análisis de {brand.nombre}</a>}
+            <a class="button secondary" href="/busqueda">Buscar productos</a>
           </div>
         </section>
       </div>
@@ -143,7 +258,7 @@ const articleSchema = {
       <aside class="sidebar">
         <div class="card sticky-card">
           <div class="section-title">
-            <h3>Puntos clave</h3>
+            <h3 style="margin: 0; font-size: 1.1rem;">Puntos destacados</h3>
             <span class="mini-score">{article.puntuacion}</span>
           </div>
           <ul class="bullet-list">
@@ -151,51 +266,70 @@ const articleSchema = {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <div class="table-rows">
-            <div class="table-row"><span>Actualizado</span><span>{article.actualizado}</span></div>
-            <div class="table-row"><span>Categoría</span><span>{category?.nombre}</span></div>
-            <div class="table-row"><span>Marca</span><span>{brand?.nombre}</span></div>
+          <div class="table-rows" style="margin-top: 1rem;">
+            <div class="table-row">
+              <span style="font-size: 0.9rem;">Actualizado</span>
+              <span style="font-size: 0.9rem;">{article.actualizado}</span>
+            </div>
+            {category && (
+              <a href={`/categoria/${category.slug}`} class="table-row" style="text-decoration: none; transition: all 150ms ease;">
+                <span style="font-size: 0.9rem;">Categoría</span>
+                <span style="font-size: 0.9rem; color: var(--primary);">{category.nombre}</span>
+              </a>
+            )}
+            {brand && (
+              <a href={`/marca/${brand.slug}`} class="table-row" style="text-decoration: none; transition: all 150ms ease;">
+                <span style="font-size: 0.9rem;">Marca</span>
+                <span style="font-size: 0.9rem; color: var(--primary);">{brand.nombre}</span>
+              </a>
+            )}
           </div>
         </div>
 
-        {article?.review?.pros || article?.review?.contras ? (
+        {(article?.review?.pros || article?.review?.contras) && (
           <div class="card pros-cons">
-            <div>
-              <p class="eyebrow">Lo mejor</p>
-              <ul class="bullet-list">
-                {article.review?.pros?.map((pro) => (
-                  <li key={pro}>{pro}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p class="eyebrow">A mejorar</p>
-              <ul class="bullet-list muted">
-                {article.review?.contras?.map((con) => (
-                  <li key={con}>{con}</li>
-                ))}
-              </ul>
-            </div>
+            {article.review?.pros && article.review.pros.length > 0 && (
+              <div>
+                <p class="eyebrow" style="background: #dcfce7; color: #15803d;">Aspectos positivos</p>
+                <ul class="bullet-list" style="margin-top: 0.5rem;">
+                  {article.review.pros.map((pro) => (
+                    <li key={pro}>{pro}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {article.review?.contras && article.review.contras.length > 0 && (
+              <div>
+                <p class="eyebrow" style="background: #fee2e2; color: #991b1b;">Puntos a mejorar</p>
+                <ul class="bullet-list muted" style="margin-top: 0.5rem;">
+                  {article.review.contras.map((con) => (
+                    <li key={con}>{con}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
-        ) : null}
+        )}
 
-        {article?.review?.ficha ? (
+        {article?.review?.ficha && (
           <div class="card fact-sheet">
             <div class="section-title">
-              <h3>Ficha rápida</h3>
+              <h3 style="margin: 0; font-size: 1.1rem;">Especificaciones</h3>
             </div>
             <ul class="table-rows">
               {Object.entries(article.review.ficha).map(([label, value]) => (
-                <li class="table-row" key={label}>
-                  <span>{label}</span>
-                  <span>{value}</span>
+                <li class="table-row" key={label} style="font-size: 0.9rem;">
+                  <span style="font-weight: 700;">{label}</span>
+                  <span style="text-align: right;">{value}</span>
                 </li>
               ))}
             </ul>
           </div>
-        ) : null}
+        )}
       </aside>
     </div>
   </article>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+  {reviewSchema && <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)}></script>}
 </BaseLayout>
